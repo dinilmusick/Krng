@@ -1,6 +1,6 @@
 {
-  "currentStage": "Project Implementation",
-  "lastDoneMove": "Transitioned to stage: Project Implementation",
+  "currentStage": "Implementation Stage",
+  "lastDoneMove": "Transitioned to stage: Implementation Stage",
   "boneAssets": [],
   "implementedAssets": [
     "KeyStore",
@@ -17,7 +17,7 @@
   ],
   "installedLibraries": [],
   "untestedEndpoints": [],
-  "projectTested": false,
+  "projectTested": true,
   "gitTaskCount": 0,
   "structureTree": {
     "id": "Krng",
