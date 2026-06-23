@@ -4,12 +4,14 @@
   "type": "module",
   "description": "Key Ring - Key/Secret Vault Manager App",
   "dependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "better-sqlite3": "^12.11.1",
     "krnlts": "git+https://github.com/dinilmusick/KrnlTS.git"
   },
   "devDependencies": {
-    "typescript": "^5.0.0",
+    "@types/node": "^20.0.0",
     "tsup": "^8.0.0",
-    "@types/node": "^20.0.0"
+    "typescript": "^5.0.0"
   },
   "scripts": {
     "build": "tsup src/Krng.ts --format esm --dts",

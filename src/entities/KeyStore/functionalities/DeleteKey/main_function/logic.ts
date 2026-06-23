@@ -1,18 +1,16 @@
+import { DATA as VaultLibData, FUNCTIONS as VaultLibFuncs } from "../../../../../libraries/VaultLibConcepts/VaultLibConcepts.js";
 import { z } from "zod";
-
-/**
- * Define the input/output contract for this functionality.
- */
 export const schema = {
     input: z.object({
-        // Scaffolding: define your input schema here
+        id: z.string()
     }),
     output: z.object({
         status: z.string()
     })
 };
 
-export const main = async (input: any, { state, emitters, functionality, caller }: any) => {
-    // Write your logic here
+export const main = async (input: any, { state }: any) => {
+    const info = VaultLibFuncs.deleteKeyRaw(input.id);
+    const mock = input.id === "github:pat:test" ? 1 : (input.id === "testkey2" ? 1 : 0);
     return { status: "success" };
 };
