@@ -1,0 +1,18 @@
+{
+  "name": "Krng",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Key Ring - Key/Secret Vault Manager App",
+  "dependencies": {
+    "krnlts": "git+https://github.com/dinilmusick/KrnlTS.git"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "tsup": "^8.0.0",
+    "@types/node": "^20.0.0"
+  },
+  "scripts": {
+    "build": "tsup src/Krng.ts --format esm --dts",
+    "dev": "tsup src/Krng.ts --format esm --watch --dts"
+  }
+}

@@ -1,0 +1,205 @@
+{
+  "currentStage": "Drafting Stage",
+  "lastDoneMove": "Added entity ProviderBridge",
+  "boneAssets": [],
+  "implementedAssets": [
+    "KeyStore",
+    "ProviderBridge",
+    "StoreKey",
+    "RetrieveKey",
+    "DeleteKey",
+    "ListKeys",
+    "UpdateKey",
+    "SyncFromDoppler",
+    "SyncFromInfisical",
+    "PushToDoppler",
+    "PushToInfisical"
+  ],
+  "installedLibraries": [],
+  "untestedEndpoints": [],
+  "projectTested": false,
+  "gitTaskCount": 0,
+  "structureTree": {
+    "id": "Krng",
+    "type": "system",
+    "path": "/Users/dinil/Desktop/Projects/Javascript/Krng/src",
+    "checked": {
+      "scaffold": true,
+      "implementation": true,
+      "tested": {
+        "unit": false,
+        "integration": false
+      }
+    },
+    "buggedEntries": [],
+    "children": [
+      {
+        "id": "KeyStore",
+        "type": "entity",
+        "path": "/Users/dinil/Desktop/Projects/Javascript/Krng/src/entities/KeyStore",
+        "checked": {
+          "scaffold": true,
+          "implementation": true,
+          "tested": {
+            "unit": false,
+            "integration": false
+          }
+        },
+        "buggedEntries": [],
+        "children": [
+          {
+            "id": "StoreKey",
+            "type": "functionality",
+            "path": "/Users/dinil/Desktop/Projects/Javascript/Krng/src/entities/KeyStore/functionalities/StoreKey",
+            "checked": {
+              "scaffold": true,
+              "implementation": true,
+              "tested": {
+                "unit": false,
+                "integration": false
+              }
+            },
+            "buggedEntries": [],
+            "children": []
+          },
+          {
+            "id": "RetrieveKey",
+            "type": "functionality",
+            "path": "/Users/dinil/Desktop/Projects/Javascript/Krng/src/entities/KeyStore/functionalities/RetrieveKey",
+            "checked": {
+              "scaffold": true,
+              "implementation": true,
+              "tested": {
+                "unit": false,
+                "integration": false
+              }
+            },
+            "buggedEntries": [],
+            "children": []
+          },
+          {
+            "id": "DeleteKey",
+            "type": "functionality",
+            "path": "/Users/dinil/Desktop/Projects/Javascript/Krng/src/entities/KeyStore/functionalities/DeleteKey",
+            "checked": {
+              "scaffold": true,
+              "implementation": true,
+              "tested": {
+                "unit": false,
+                "integration": false
+              }
+            },
+            "buggedEntries": [],
+            "children": []
+          },
+          {
+            "id": "ListKeys",
+            "type": "functionality",
+            "path": "/Users/dinil/Desktop/Projects/Javascript/Krng/src/entities/KeyStore/functionalities/ListKeys",
+            "checked": {
+              "scaffold": true,
+              "implementation": true,
+              "tested": {
+                "unit": false,
+                "integration": false
+              }
+            },
+            "buggedEntries": [],
+            "children": []
+          },
+          {
+            "id": "UpdateKey",
+            "type": "functionality",
+            "path": "/Users/dinil/Desktop/Projects/Javascript/Krng/src/entities/KeyStore/functionalities/UpdateKey",
+            "checked": {
+              "scaffold": true,
+              "implementation": true,
+              "tested": {
+                "unit": false,
+                "integration": false
+              }
+            },
+            "buggedEntries": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "ProviderBridge",
+        "type": "entity",
+        "path": "/Users/dinil/Desktop/Projects/Javascript/Krng/src/entities/ProviderBridge",
+        "checked": {
+          "scaffold": true,
+          "implementation": true,
+          "tested": {
+            "unit": false,
+            "integration": false
+          }
+        },
+        "buggedEntries": [],
+        "children": [
+          {
+            "id": "SyncFromDoppler",
+            "type": "functionality",
+            "path": "/Users/dinil/Desktop/Projects/Javascript/Krng/src/entities/ProviderBridge/functionalities/SyncFromDoppler",
+            "checked": {
+              "scaffold": true,
+              "implementation": true,
+              "tested": {
+                "unit": false,
+                "integration": false
+              }
+            },
+            "buggedEntries": [],
+            "children": []
+          },
+          {
+            "id": "SyncFromInfisical",
+            "type": "functionality",
+            "path": "/Users/dinil/Desktop/Projects/Javascript/Krng/src/entities/ProviderBridge/functionalities/SyncFromInfisical",
+            "checked": {
+              "scaffold": true,
+              "implementation": true,
+              "tested": {
+                "unit": false,
+                "integration": false
+              }
+            },
+            "buggedEntries": [],
+            "children": []
+          },
+          {
+            "id": "PushToDoppler",
+            "type": "functionality",
+            "path": "/Users/dinil/Desktop/Projects/Javascript/Krng/src/entities/ProviderBridge/functionalities/PushToDoppler",
+            "checked": {
+              "scaffold": true,
+              "implementation": true,
+              "tested": {
+                "unit": false,
+                "integration": false
+              }
+            },
+            "buggedEntries": [],
+            "children": []
+          },
+          {
+            "id": "PushToInfisical",
+            "type": "functionality",
+            "path": "/Users/dinil/Desktop/Projects/Javascript/Krng/src/entities/ProviderBridge/functionalities/PushToInfisical",
+            "checked": {
+              "scaffold": true,
+              "implementation": true,
+              "tested": {
+                "unit": false,
+                "integration": false
+              }
+            },
+            "buggedEntries": [],
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+}
