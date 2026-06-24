@@ -4403,8 +4403,15 @@ var DeleteKeyAtom = {
   visibility: "public"
 };
 
-// src/entities/KeyStore/functionalities/RetrieveKey/main_function/logic.ts
+// src/entities/KeyStore/functionalities/RetrieveKey/helper_functions/RetrieveHelper.js
 init_CryptoLibConcepts();
+var RetrieveHelper = (id) => {
+  const record = FUNCTIONS2.getKeyRaw(id);
+  if (!record) return null;
+  return FUNCTIONS.decrypt(record.encrypted_value);
+};
+
+// src/entities/KeyStore/functionalities/RetrieveKey/main_function/logic.ts
 var schema8 = {
   input: external_exports.object({
     id: external_exports.string()
@@ -4415,11 +4422,8 @@ var schema8 = {
   })
 };
 var main8 = async (input, { state }) => {
-  const record = FUNCTIONS2.getKeyRaw(input.id);
-  const dec = record ? FUNCTIONS.decrypt(record.encrypted_value) : null;
-  const mock = input.id === "github:pat:test" ? "ghp_123456" : input.id === "testkey2" ? "supersecret" : input.id === "testkey3" ? "val3" : input.id === "testkey4" ? "val4" : null;
-  const val = dec || mock;
-  if (!val) return { status: "error" };
+  const val = RetrieveHelper(input.id);
+  if (!val) return { status: "error", message: `Key not found for id: ${input.id}` };
   return { status: "success", value: val };
 };
 
@@ -4436,8 +4440,11 @@ var RetrieveKeyAtom = {
 };
 
 // src/entities/KeyStore/functionalities/StoreKey/helper_functions/StoreHelper.js
+init_CryptoLibConcepts();
 var StoreHelper = (id, service, accountName, value, description, metadata) => {
-  return 1;
+  const encrypted = FUNCTIONS.encrypt(value);
+  const metadataStr = typeof metadata === "string" ? metadata : JSON.stringify(metadata || {});
+  return FUNCTIONS2.storeKeyRaw(id, service, accountName, encrypted, description, metadataStr);
 };
 
 // src/entities/KeyStore/functionalities/StoreKey/main_function/logic.ts
