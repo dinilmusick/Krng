@@ -2,10 +2,13 @@ import { ProviderBridge } from "./entities/ProviderBridge/ProviderBridge.ts";
 import { KeyStore } from "./entities/KeyStore/KeyStore.ts";
 import { krnlSystemEntityBase } from "krnlts";
 import { DocumentationManager } from "./libraries/DocumentationManagerConcepts/DocumentationManagerConcepts.ts";
+import { fileURLToPath } from "url";
+import { dirname, join } from "path";
 
 export class Krng extends krnlSystemEntityBase {
     constructor(commPort = 10091, host = "0.0.0.0") {
-        super("Krng", null, commPort, host);
+        super("Krng", null, commPort, host, { sourcePath: import.meta.url });
+
         this.addChild(new KeyStore(this));
         this.addChild(new ProviderBridge(this));
         this.setDocumentationProvider(DocumentationManager as any);
@@ -86,8 +89,6 @@ export class Krng extends krnlSystemEntityBase {
         if ((this as any).unifiedHttpAdapter) {
             (this as any).unifiedHttpAdapter.enableFriendlyRouting = true;
         }
-        const { KrnlMagneticLoader } = await import("krnlts");
-        await KrnlMagneticLoader.loadAll(this, process.cwd());
         console.log("Krng System initialized.");
     }
 }
