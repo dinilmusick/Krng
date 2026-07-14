@@ -6,7 +6,7 @@
   "dependencies": {
     "@types/better-sqlite3": "^7.6.13",
     "better-sqlite3": "^12.11.1",
-    "krnlts": "git+https://github.com/dinilmusick/KrnlTS.git#1f03f2772fd42799f143f038bb15302f5ab38628"
+    "krnlts": "git+https://github.com/dinilmusick/KrnlTS.git#main"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
