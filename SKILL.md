@@ -1,67 +1,123 @@
 ---
-name: dea_guide
-description: Detailed reference for the DeaTS Protocol, Engineering Constraints, structural checklists, and integration testing frameworks.
+name: krng-guide
+description: Detailed user and AI agent usage guide for Krng (Key Ring Manager), covering persistent storage architecture, duplicate key value guard policies, subapp/Mer integrations, and endpoint RPC contracts.
 ---
 
-# DeaTS Project Protocol & Engineering Constraints
+# Krng (Key Ring Manager) Developer & AI Agent Guide
 
-This document defines the strict architectural and quality requirements for this project. Adherence to these rules is mandatory for system integrity, automated orchestration, and long-term maintainability.
+**Krng** is an atomic microservice secret/key vault manager built on the **KrnlTS** framework. It provides safe AES-256-GCM encryption for credentials, API tokens, and key-value pairings with persistent storage across application updates.
 
-## 1. Project Organization (Atomic Entity Model)
-Projects MUST follow a nested, component-based hierarchy. This structure ensures that every piece of logic is isolated, discoverable, and easily swappable.
+---
 
-- **Root Directory**: Must contain `dea.json`, `package.json`, and `tsconfig.json`.
-- **`src/entities/`**: Primary domain components. Each entity is a folder containing:
-    - `EntityName.ts`: The class definition extending `krnlEntityBase`.
-    - `functionalities/`: Logic atoms belonging to this entity.
-- **`src/libraries/`**: Reusable logic concepts. Folder naming convention: `NameConcepts/`.
-    - Contains `NameConcepts.ts` (Exporting `DATA` and `FUNCTIONS` objects).
-- **`exhibits/`**: Self-contained demonstration and test scripts (naming: `NameExhibit.ts`).
+## 1. Storage Architecture & Update Persistence
 
-## 2. Functionality (Atom) Structure & Type Safety
-A Functionality (e.g., `StockUpdate`) must occupy its own directory with a fixed sub-structure to ensure protocol parity and **Strict Validation**:
+### Machine-Scoped Storage (`~/.krng/vault.db`)
+* **Default Database Path**: `~/.krng/vault.db` (User home directory).
+* **Environment Override**: Set `KRNG_VAULT_PATH=/custom/path/vault.db` to isolate storage if needed.
+* **Update & Subapp Safety**: Because database storage is detached from the local application working directory (`process.cwd()`), updating Krng codebase or embedding Krng as a subapp inside other ecosystems (e.g. Mer apps) will **NEVER** overwrite, lose, or reset previously stored credentials.
+* **Auto-Migration**: On initial startup, if no database exists at `~/.krng/vault.db`, Krng automatically checks for a legacy `./vault.db` in `process.cwd()` and safely copies it over to the persistent path.
 
-- `src/entities/X/functionalities/StockUpdate/`
-    - `StockUpdateAtom.ts`: Descriptor linking logic, state, and **Zod Schema**.
-    - `main_function/`:
-        - `logic.ts`: The core implementation (`export const main = ...`) AND the contract (`export const schema = ...`).
-    - `state_data/`:
-        - `state.ts`: Initial state definition.
-    - `helpers/`: (Optional) Supplemental private logic files.
-    - `events/`: (Optional) Event handler definitions.
+---
 
-## 3. Logic Implementation Rules
-The following rules apply to all code injected via `EditLogic`:
+## 2. Duplicate Secret Value Prevention Policy
 
-- **Import Management**:
-    - **NO MANUAL IMPORTS**: Developers are forbidden from writing `import` statements directly in logic files.
-    - **Declarative Dependencies**: All external or library dependencies MUST be managed via the DeaTS `AddImportToAsset` or `AddLocalImportToAsset` endpoints.
-- **Function Signature**:
-    - All main logic MUST follow: `export const main = async (input: any, { state, emitters, functionality, caller }: any) => { ... }`.
-- **State Modification**:
-    - State is shared and mutable. Logic should directly modify the `state` object.
-- **Symbol Validation**:
-    - All library calls MUST be prefixed: `DATA.Name` or `FUNCTIONS.Name`.
+To eliminate redundant credentials and maintain a single source of truth across services:
 
-## 4. Quality & Security Guards (Crucial)
-To maintain a high-quality codebase, DeaTS enforces several rolling constraints:
+* **Duplicate Value Guard**: The `StoreKey` endpoint automatically inspects incoming plaintext values against existing encrypted entries in the vault before saving.
+* **Duplicate Block Rule**: If the secret value (e.g., `ghp_123456789`) is already stored under an existing key ID (e.g., `github:pat:main`), `StoreKey` will reject the request with:
+  ```json
+  {
+    "status": "error",
+    "message": "Value already stored under id 'github:pat:main'. Storing duplicate secret values is redundant and not allowed."
+  }
+  ```
+* **Correct Action for Key Updates**: 
+  - To modify an existing entry's value or metadata, use **`UpdateKey`**.
+  - To store a distinct new credential under a new ID, use **`StoreKey`**.
 
-- **Line Count Rule (The "5-Line" Rule)**: 
-    - Functions should ideally not exceed **5-10 lines of complex logic**. 
-    - If a logic block becomes too long, it MUST be refactored into **Helper Functions** (within the functionality folder) or **Libraries** (for cross-entity reuse).
-    - This keeps the "Bricks" of the system atomic and readable.
-- **Testing Threshold**: 
-    - In the `Implementation Stage` stage, every logic edit MUST be accompanied by at least **5 unit tests**.
-    - Tests are defined as an array of objects: `{ input: {}, expected: {} }`.
-    - **Subset Matching**: Unit tests only require the `expected` value to match a portion of the actual result/state.
+---
 
-## 5. Progress Tracking (dea.json)
-The `dea.json` file is the **Source of Truth** for the project's health and stage. It tracks:
-- **Current Stage**: (e.g., `Drafting Stage` vs `Implementation Stage`).
-- **Asset Inventory**: Which assets are "Bones" (skeletons) and which are "Implemented" (bricks).
-- **Test Coverage**: Tracks untested endpoints to ensure 100% system-wide coverage.
-- **NEVER MANUALLY DELETE THIS FILE**.
+## 3. Public Endpoint API Contracts
 
-## 6. State & Data Handling
-- **Map Object Support**: `Map` objects are fully supported but must be serialized/hydrated correctly for RPC using the `{ "_type": "Map", "data": { ... } }` marker.
-- **Build Target**: Always build for ESM/CJS compatibility using `tsup`.
+All RPC calls to Krng use standard KrnlTS JSON payload schemas.
+
+### `StoreKey`
+Stores a new encrypted key/secret entry into the vault (guarded against duplicates).
+
+* **Input**:
+  ```json
+  {
+    "id": "github:pat:main",       // Unique key identifier (or use "provider")
+    "value": "ghp_xxxxxxxxxxxx",  // Secret string to encrypt & store (or use "key")
+    "service": "GitHub",          // (Optional) Target service name
+    "accountName": "user@domain", // (Optional) Account owner
+    "description": "Main PAT",   // (Optional) Description
+    "metadata": {}                // (Optional) Custom JSON object
+  }
+  ```
+* **Output (Success)**:
+  ```json
+  { "status": "success", "id": "github:pat:main", "key": "ghp_xxxxxxxxxxxx", "value": "ghp_xxxxxxxxxxxx" }
+  ```
+* **Output (Duplicate Guard Failure)**:
+  ```json
+  { "status": "error", "message": "Value already stored under id '...'. Storing duplicate secret values is redundant and not allowed." }
+  ```
+
+---
+
+### `RetrieveKey`
+Retrieves and decrypts a key from the vault.
+
+* **Input**: `{ "id": "github:pat:main" }`
+* **Output**: `{ "status": "success", "value": "ghp_xxxxxxxxxxxx", "key": "ghp_xxxxxxxxxxxx" }`
+
+---
+
+### `UpdateKey`
+Updates metadata or secret value for an existing key ID.
+
+* **Input**:
+  ```json
+  {
+    "id": "github:pat:main",
+    "value": "ghp_newvalue123",
+    "service": "GitHub",
+    "description": "Updated PAT"
+  }
+  ```
+* **Output**: `{ "status": "success", "id": "github:pat:main" }`
+
+---
+
+### `ListKeys`
+Lists stored keys. Supports optional client-side decryption.
+
+* **Input**: `{ "decrypt": false }`
+* **Output**: `{ "status": "success", "keys": [ { "id": "github:pat:main" } ] }`
+
+---
+
+### `DeleteKey`
+Removes a key entry from the vault.
+
+* **Input**: `{ "id": "github:pat:main" }`
+* **Output**: `{ "status": "success" }`
+
+---
+
+## 4. Integration Guidelines for Subapps & Mer Apps
+
+When incorporating `Krng` as a child entity or subapp in a parent entity:
+
+```typescript
+import { Krng } from "krng";
+
+// Standard initialization
+const krngApp = new Krng(10091);
+await krngApp.boot();
+```
+
+* **Default RPC Communication Port**: `10091`
+* **Encryption Key Generation**: Derived automatically via host hardware identity (`AES-256-GCM`).
+* **Environment Override**: Pass custom `KRNG_VAULT_PATH` when starting test suites or isolated sandboxes.

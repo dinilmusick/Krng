@@ -9,9 +9,22 @@ export class Krng extends krnlSystemEntityBase {
     constructor(commPort = 10091, host = "0.0.0.0") {
         super("Krng", null, commPort, host, { sourcePath: import.meta.url });
 
-        this.addChild(new KeyStore(this));
+        const keyStore = new KeyStore(this);
+        this.addChild(keyStore);
         this.addChild(new ProviderBridge(this));
         this.setDocumentationProvider(DocumentationManager as any);
+
+        const keyFuncs = ["ListKeys", "RetrieveKey", "StoreKey", "UpdateKey", "DeleteKey"];
+        for (const fid of keyFuncs) {
+            try {
+                this.addRemote({
+                    id: fid,
+                    targetEntity: keyStore,
+                    targetFunction: fid,
+                    visibility: "public"
+                });
+            } catch (e) {}
+        }
     }
 
     addLocal(atom: any) {

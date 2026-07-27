@@ -1,17 +1,35 @@
 import Database from 'better-sqlite3';
 import path from 'path';
 import fs from 'fs';
+import os from 'os';
+import { FUNCTIONS as CryptoLibFuncs } from '../CryptoLibConcepts/CryptoLibConcepts.js';
+
 export const DATA = {
     dbInstance: null
 };
 export const FUNCTIONS = {
+    getDbPath: () => {
+        if (process.env.KRNG_VAULT_PATH) {
+            return process.env.KRNG_VAULT_PATH;
+        }
+        return path.join(os.homedir(), '.krng', 'vault.db');
+    },
     getDb: (dbPath) => {
         if (DATA.dbInstance)
             return DATA.dbInstance;
-        const targetPath = dbPath || path.join(process.cwd(), 'vault.db');
+        const targetPath = dbPath || FUNCTIONS.getDbPath();
         const dir = path.dirname(targetPath);
         if (!fs.existsSync(dir)) {
             fs.mkdirSync(dir, { recursive: true });
+        }
+        const legacyPath = path.join(process.cwd(), 'vault.db');
+        if (!fs.existsSync(targetPath) && fs.existsSync(legacyPath) && legacyPath !== targetPath) {
+            try {
+                fs.copyFileSync(legacyPath, targetPath);
+                console.log(`[Krng VaultLib] Migrated legacy vault database from ${legacyPath} to ${targetPath}`);
+            } catch (err) {
+                console.error(`[Krng VaultLib] Failed to migrate legacy vault database:`, err);
+            }
         }
         const db = new Database(targetPath);
         db.exec(`
@@ -34,6 +52,21 @@ export const FUNCTIONS = {
             DATA.dbInstance.close();
             DATA.dbInstance = null;
         }
+    },
+    findDuplicateValue: (plaintextValue) => {
+        const records = FUNCTIONS.listKeysRaw();
+        for (const record of records) {
+            if (!record.encrypted_value) continue;
+            try {
+                const decrypted = CryptoLibFuncs.decrypt(record.encrypted_value);
+                if (decrypted === plaintextValue) {
+                    return record.id;
+                }
+            } catch (e) {
+                // Ignore decryption errors
+            }
+        }
+        return null;
     },
     storeKeyRaw: (id, service, accountName, encryptedValue, description, metadataStr) => {
         const db = FUNCTIONS.getDb();
@@ -67,10 +100,9 @@ export const FUNCTIONS = {
     },
     storeBatchKeys: (secrets, service) => {
         const db = FUNCTIONS.getDb();
-        const { FUNCTIONS: crypto } = require('../CryptoLibConcepts/CryptoLibConcepts.js');
         const insert = db.transaction((secMap) => {
             for (const key of Object.keys(secMap)) {
-                const encrypted = crypto.encrypt(secMap[key]);
+                const encrypted = CryptoLibFuncs.encrypt(secMap[key]);
                 FUNCTIONS.storeKeyRaw(key, service, null, encrypted, `Synced from ${service}`, '{}');
             }
         });
