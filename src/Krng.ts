@@ -1,6 +1,6 @@
 import { ProviderBridge } from "./entities/ProviderBridge/ProviderBridge.ts";
 import { KeyStore } from "./entities/KeyStore/KeyStore.ts";
-import { krnlSystemEntityBase } from "krnlts";
+import { krnlSystemEntityBase, KrnlFrontendGenerator, KrnlFrontendBuilder } from "krnlts";
 import { DocumentationManager } from "./libraries/DocumentationManagerConcepts/DocumentationManagerConcepts.ts";
 import { fileURLToPath } from "url";
 import path, { dirname, join } from "path";
@@ -78,15 +78,14 @@ export class Krng extends krnlSystemEntityBase {
 
         const keyFuncs = ["ListKeys", "RetrieveKey", "StoreKey", "UpdateKey", "DeleteKey"];
         for (const fid of keyFuncs) {
-            try {
-                this.addRemote({
-                    id: fid,
-                    targetEntity: keyStore,
-                    targetFunction: fid,
-                    visibility: "public",
-                    uiSpec: getUiSpecForFid(fid) as any
-                });
-            } catch (e) {}
+            this.addLocal({
+                id: fid,
+                description: `Vault endpoint ${fid}`,
+                uiSpec: getUiSpecForFid(fid),
+                api: async (data: any) => {
+                    return await keyStore.call(fid, data);
+                }
+            });
         }
     }
 
@@ -165,19 +164,14 @@ export class Krng extends krnlSystemEntityBase {
         if ((this as any).unifiedHttpAdapter) {
             (this as any).unifiedHttpAdapter.enableFriendlyRouting = true;
         }
-        const projectRoot = path.resolve(fileURLToPath(import.meta.url), "../..");
+        const currentDir = dirname(fileURLToPath(import.meta.url));
+        const projectRoot = currentDir.endsWith("dist") || currentDir.endsWith("src") ? path.resolve(currentDir, "..") : currentDir;
         const frontendDir = path.join(projectRoot, "frontend");
+        console.log("[Krng] Calculated frontendDir:", frontendDir);
         this.enableFrontend({ title: "Krng Vault Manager", theme: "dark", frontendDir });
         try {
-            const mod = await import("krnlts");
-            const Generator = mod.KrnlFrontendGenerator || (mod as any).default?.KrnlFrontendGenerator;
-            const Builder = mod.KrnlFrontendBuilder || (mod as any).default?.KrnlFrontendBuilder;
-            if (Generator && typeof Generator.generate === "function") {
-                await Generator.generate(this, frontendDir);
-            }
-            if (Builder && typeof Builder.build === "function") {
-                await Builder.build(frontendDir);
-            }
+            await KrnlFrontendGenerator.generate(this, frontendDir);
+            await KrnlFrontendBuilder.build(frontendDir);
         } catch (err: any) {
             console.warn("[Krng] Frontend generation/build warning:", err.message);
         }

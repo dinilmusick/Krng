@@ -1,8 +1,17 @@
-[KRNL_DATA_DIR] Entity: Krng, DataDir: /Users/dinil/Desktop/Projects/Javascript/Krng/dist, subappStore: undefined
-[KRNL_DIAGNOSTICS] {"event":"KRNL_STARTUP","entity":"Krng","timestamp":1785422411528,"subsystems":{"comm":{"status":"pending","preferredPort":10098},"discovery":{"status":"available"}},"flags":{"discoverable":true,"busy":false,"reservedBy":null,"reservedAt":null},"environment":"node"}
-[2026-07-30T14:40:11.528Z] System Krng starting diagnostics emitted.
-[MagneticLoader] loadAll called for entity 'Krng' with baseDir '/Users/dinil/Desktop/Projects/Javascript/Krng/dist'
-[2026-07-30T14:40:12.044Z] ERROR: [KrnlRegistryClient] Register error: fetch failed
-[2026-07-30T14:40:12.097Z] [Krng] commPort finalized → 10098
-[Krng] Unified port active on http://0.0.0.0:10098 (WS + REST + MCP + ACP)
-Krng System initialized.
+node:internal/modules/esm/resolve:873
+  throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+        ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'krnlts' imported from /Users/dinil/Desktop/Projects/Javascript/Krng/dist/Krng.js
+    at packageResolve (node:internal/modules/esm/resolve:873:9)
+    at moduleResolve (node:internal/modules/esm/resolve:946:18)
+    at defaultResolve (node:internal/modules/esm/resolve:1188:11)
+    at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:708:12)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:657:25)
+    at ModuleLoader.resolve (node:internal/modules/esm/loader:640:38)
+    at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:264:38)
+    at ModuleJob._link (node:internal/modules/esm/module_job:168:49) {
+  code: 'ERR_MODULE_NOT_FOUND'
+}
+
+Node.js v20.20.2

@@ -1,4 +1,4 @@
-// node_modules/zod/lib/index.mjs
+// ../KrnlTS/node_modules/.pnpm/zod@3.24.1/node_modules/zod/lib/index.mjs
 var util;
 (function(util2) {
   util2.assertEqual = (val) => val;
@@ -4508,7 +4508,7 @@ var KeyStore = class extends krnlEntityBase2 {
 };
 
 // src/Krng.ts
-import { krnlSystemEntityBase } from "krnlts";
+import { krnlSystemEntityBase, KrnlFrontendGenerator, KrnlFrontendBuilder } from "krnlts";
 
 // src/libraries/DocumentationManagerConcepts/DocumentationManagerConcepts.ts
 var DocumentationManager = {
@@ -4659,7 +4659,7 @@ var DocumentationManager = {
 
 // src/Krng.ts
 import { fileURLToPath } from "url";
-import path2 from "path";
+import path2, { dirname } from "path";
 var Krng = class extends krnlSystemEntityBase {
   constructor(commPort = 10091, host = "0.0.0.0") {
     super("Krng", null, commPort, host, { sourcePath: import.meta.url });
@@ -4730,16 +4730,14 @@ var Krng = class extends krnlSystemEntityBase {
     };
     const keyFuncs = ["ListKeys", "RetrieveKey", "StoreKey", "UpdateKey", "DeleteKey"];
     for (const fid of keyFuncs) {
-      try {
-        this.addRemote({
-          id: fid,
-          targetEntity: keyStore,
-          targetFunction: fid,
-          visibility: "public",
-          uiSpec: getUiSpecForFid(fid)
-        });
-      } catch (e) {
-      }
+      this.addLocal({
+        id: fid,
+        description: `Vault endpoint ${fid}`,
+        uiSpec: getUiSpecForFid(fid),
+        api: async (data) => {
+          return await keyStore.call(fid, data);
+        }
+      });
     }
   }
   addLocal(atom) {
@@ -4813,19 +4811,14 @@ var Krng = class extends krnlSystemEntityBase {
     if (this.unifiedHttpAdapter) {
       this.unifiedHttpAdapter.enableFriendlyRouting = true;
     }
-    const projectRoot = path2.resolve(fileURLToPath(import.meta.url), "../..");
+    const currentDir = dirname(fileURLToPath(import.meta.url));
+    const projectRoot = currentDir.endsWith("dist") || currentDir.endsWith("src") ? path2.resolve(currentDir, "..") : currentDir;
     const frontendDir = path2.join(projectRoot, "frontend");
+    console.log("[Krng] Calculated frontendDir:", frontendDir);
     this.enableFrontend({ title: "Krng Vault Manager", theme: "dark", frontendDir });
     try {
-      const mod = await import("krnlts");
-      const Generator = mod.KrnlFrontendGenerator || mod.default?.KrnlFrontendGenerator;
-      const Builder = mod.KrnlFrontendBuilder || mod.default?.KrnlFrontendBuilder;
-      if (Generator && typeof Generator.generate === "function") {
-        await Generator.generate(this, frontendDir);
-      }
-      if (Builder && typeof Builder.build === "function") {
-        await Builder.build(frontendDir);
-      }
+      await KrnlFrontendGenerator.generate(this, frontendDir);
+      await KrnlFrontendBuilder.build(frontendDir);
     } catch (err) {
       console.warn("[Krng] Frontend generation/build warning:", err.message);
     }

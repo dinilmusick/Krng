@@ -1,0 +1,19 @@
+[KRNL_DATA_DIR] Entity: Krng, DataDir: /Users/dinil/Desktop/Projects/Javascript/Krng/dist, subappStore: undefined
+[KRNL_DIAGNOSTICS] {"event":"KRNL_STARTUP","entity":"Krng","timestamp":1785424381732,"subsystems":{"comm":{"status":"pending","preferredPort":10098},"discovery":{"status":"available"}},"flags":{"discoverable":true,"busy":false,"reservedBy":null,"reservedAt":null},"environment":"node"}
+[2026-07-30T15:13:01.733Z] System Krng starting diagnostics emitted.
+[MagneticLoader] loadAll called for entity 'Krng' with baseDir '/Users/dinil/Desktop/Projects/Javascript/Krng/dist'
+[2026-07-30T15:13:03.128Z] ERROR: [KrnlRegistryClient] Register error: fetch failed
+[2026-07-30T15:13:03.319Z] [Krng] commPort finalized → 10098
+[Krng] Unified port active on http://0.0.0.0:10098 (WS + REST + MCP + ACP)
+[Krng] Calculated frontendDir: /Users/dinil/Desktop/Projects/Javascript/Krng/frontend
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│ [KrnlFrontend] WARNING: UI components are enabled but React is missing! │
+│ Please run inside your frontend/ directory:                             │
+│   npm install react react-dom                                           │
+│   npm install -D @types/react @types/react-dom                         │
+└─────────────────────────────────────────────────────────────────────────┘
+
+[KrnlFrontendBuilder] Bundling /Users/dinil/Desktop/Projects/Javascript/Krng/frontend/src/index.tsx -> /Users/dinil/Desktop/Projects/Javascript/Krng/frontend/dist/bundle.js...
+[KrnlFrontendBuilder] Bundle build successful.
+Krng System initialized.
