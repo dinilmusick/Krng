@@ -351,8 +351,8 @@ function getErrorMap() {
   return overrideErrorMap;
 }
 var makeIssue = (params) => {
-  const { data, path: path2, errorMaps, issueData } = params;
-  const fullPath = [...path2, ...issueData.path || []];
+  const { data, path: path3, errorMaps, issueData } = params;
+  const fullPath = [...path3, ...issueData.path || []];
   const fullIssue = {
     ...issueData,
     path: fullPath
@@ -477,11 +477,11 @@ var errorUtil;
 var _ZodEnum_cache;
 var _ZodNativeEnum_cache;
 var ParseInputLazyPath = class {
-  constructor(parent, value, path2, key) {
+  constructor(parent, value, path3, key) {
     this._cachedPath = [];
     this.parent = parent;
     this.data = value;
-    this._path = path2;
+    this._path = path3;
     this._key = key;
   }
   get path() {
@@ -4658,6 +4658,8 @@ var DocumentationManager = {
 };
 
 // src/Krng.ts
+import { fileURLToPath } from "url";
+import path2 from "path";
 var Krng = class extends krnlSystemEntityBase {
   constructor(commPort = 10091, host = "0.0.0.0") {
     super("Krng", null, commPort, host, { sourcePath: import.meta.url });
@@ -4665,6 +4667,67 @@ var Krng = class extends krnlSystemEntityBase {
     this.addChild(keyStore);
     this.addChild(new ProviderBridge(this));
     this.setDocumentationProvider(DocumentationManager);
+    const getUiSpecForFid = (fid) => {
+      switch (fid) {
+        case "StoreKey":
+          return {
+            ui_component_enabled: true,
+            ui_component_type: "form",
+            inputs: [
+              { field: "id", component: "KrnlTextInput", label: "Secret Key ID", placeholder: "e.g. gemini_key" },
+              { field: "value", component: "KrnlTextInput", label: "Secret Value", placeholder: "Enter secret value..." }
+            ],
+            outputs: [
+              { field: "status", component: "KrnlTile", label: "Status" }
+            ]
+          };
+        case "ListKeys":
+          return {
+            ui_component_enabled: true,
+            ui_component_type: "form",
+            inputs: [],
+            outputs: [
+              { field: "keys", component: "KrnlJsonViewer", label: "Stored Secrets Vault" }
+            ]
+          };
+        case "RetrieveKey":
+          return {
+            ui_component_enabled: true,
+            ui_component_type: "form",
+            inputs: [
+              { field: "id", component: "KrnlTextInput", label: "Secret Key ID", placeholder: "e.g. gemini_key" }
+            ],
+            outputs: [
+              { field: "value", component: "KrnlTile", label: "Decrypted Secret Value" }
+            ]
+          };
+        case "UpdateKey":
+          return {
+            ui_component_enabled: true,
+            ui_component_type: "form",
+            inputs: [
+              { field: "id", component: "KrnlTextInput", label: "Secret Key ID" },
+              { field: "value", component: "KrnlTextInput", label: "New Secret Value" }
+            ],
+            outputs: [
+              { field: "status", component: "KrnlTile", label: "Status" }
+            ]
+          };
+        case "DeleteKey":
+          return {
+            ui_component_enabled: true,
+            ui_component_type: "form",
+            inputs: [
+              { field: "id", component: "KrnlTextInput", label: "Secret Key ID" }
+            ],
+            outputs: [
+              { field: "status", component: "KrnlTile", label: "Status" }
+            ]
+          };
+        default:
+          return void 0;
+      }
+    };
     const keyFuncs = ["ListKeys", "RetrieveKey", "StoreKey", "UpdateKey", "DeleteKey"];
     for (const fid of keyFuncs) {
       try {
@@ -4672,7 +4735,8 @@ var Krng = class extends krnlSystemEntityBase {
           id: fid,
           targetEntity: keyStore,
           targetFunction: fid,
-          visibility: "public"
+          visibility: "public",
+          uiSpec: getUiSpecForFid(fid)
         });
       } catch (e) {
       }
@@ -4749,13 +4813,29 @@ var Krng = class extends krnlSystemEntityBase {
     if (this.unifiedHttpAdapter) {
       this.unifiedHttpAdapter.enableFriendlyRouting = true;
     }
+    const projectRoot = path2.resolve(fileURLToPath(import.meta.url), "../..");
+    const frontendDir = path2.join(projectRoot, "frontend");
+    this.enableFrontend({ title: "Krng Vault Manager", theme: "dark", frontendDir });
+    try {
+      const mod = await import("krnlts");
+      const Generator = mod.KrnlFrontendGenerator || mod.default?.KrnlFrontendGenerator;
+      const Builder = mod.KrnlFrontendBuilder || mod.default?.KrnlFrontendBuilder;
+      if (Generator && typeof Generator.generate === "function") {
+        await Generator.generate(this, frontendDir);
+      }
+      if (Builder && typeof Builder.build === "function") {
+        await Builder.build(frontendDir);
+      }
+    } catch (err) {
+      console.warn("[Krng] Frontend generation/build warning:", err.message);
+    }
     console.log("Krng System initialized.");
   }
 };
 if (import.meta.url === `file://${process.argv[1]}`) {
   const port = Number(process.env.KRNL_PORT || 10091);
   const system = new Krng(port);
-  await system.boot();
+  system.boot().catch(console.error);
 }
 export {
   Krng

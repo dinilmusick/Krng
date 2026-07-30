@@ -3,7 +3,7 @@ import { KeyStore } from "./entities/KeyStore/KeyStore.ts";
 import { krnlSystemEntityBase } from "krnlts";
 import { DocumentationManager } from "./libraries/DocumentationManagerConcepts/DocumentationManagerConcepts.ts";
 import { fileURLToPath } from "url";
-import { dirname, join } from "path";
+import path, { dirname, join } from "path";
 
 export class Krng extends krnlSystemEntityBase {
     constructor(commPort = 10091, host = "0.0.0.0") {
@@ -14,6 +14,68 @@ export class Krng extends krnlSystemEntityBase {
         this.addChild(new ProviderBridge(this));
         this.setDocumentationProvider(DocumentationManager as any);
 
+        const getUiSpecForFid = (fid: string) => {
+            switch (fid) {
+                case "StoreKey":
+                    return {
+                        ui_component_enabled: true,
+                        ui_component_type: "form",
+                        inputs: [
+                            { field: "id", component: "KrnlTextInput", label: "Secret Key ID", placeholder: "e.g. gemini_key" },
+                            { field: "value", component: "KrnlTextInput", label: "Secret Value", placeholder: "Enter secret value..." }
+                        ],
+                        outputs: [
+                            { field: "status", component: "KrnlTile", label: "Status" }
+                        ]
+                    };
+                case "ListKeys":
+                    return {
+                        ui_component_enabled: true,
+                        ui_component_type: "form",
+                        inputs: [],
+                        outputs: [
+                            { field: "keys", component: "KrnlJsonViewer", label: "Stored Secrets Vault" }
+                        ]
+                    };
+                case "RetrieveKey":
+                    return {
+                        ui_component_enabled: true,
+                        ui_component_type: "form",
+                        inputs: [
+                            { field: "id", component: "KrnlTextInput", label: "Secret Key ID", placeholder: "e.g. gemini_key" }
+                        ],
+                        outputs: [
+                            { field: "value", component: "KrnlTile", label: "Decrypted Secret Value" }
+                        ]
+                    };
+                case "UpdateKey":
+                    return {
+                        ui_component_enabled: true,
+                        ui_component_type: "form",
+                        inputs: [
+                            { field: "id", component: "KrnlTextInput", label: "Secret Key ID" },
+                            { field: "value", component: "KrnlTextInput", label: "New Secret Value" }
+                        ],
+                        outputs: [
+                            { field: "status", component: "KrnlTile", label: "Status" }
+                        ]
+                    };
+                case "DeleteKey":
+                    return {
+                        ui_component_enabled: true,
+                        ui_component_type: "form",
+                        inputs: [
+                            { field: "id", component: "KrnlTextInput", label: "Secret Key ID" }
+                        ],
+                        outputs: [
+                            { field: "status", component: "KrnlTile", label: "Status" }
+                        ]
+                    };
+                default:
+                    return undefined;
+            }
+        };
+
         const keyFuncs = ["ListKeys", "RetrieveKey", "StoreKey", "UpdateKey", "DeleteKey"];
         for (const fid of keyFuncs) {
             try {
@@ -21,7 +83,8 @@ export class Krng extends krnlSystemEntityBase {
                     id: fid,
                     targetEntity: keyStore,
                     targetFunction: fid,
-                    visibility: "public"
+                    visibility: "public",
+                    uiSpec: getUiSpecForFid(fid) as any
                 });
             } catch (e) {}
         }
@@ -102,6 +165,22 @@ export class Krng extends krnlSystemEntityBase {
         if ((this as any).unifiedHttpAdapter) {
             (this as any).unifiedHttpAdapter.enableFriendlyRouting = true;
         }
+        const projectRoot = path.resolve(fileURLToPath(import.meta.url), "../..");
+        const frontendDir = path.join(projectRoot, "frontend");
+        this.enableFrontend({ title: "Krng Vault Manager", theme: "dark", frontendDir });
+        try {
+            const mod = await import("krnlts");
+            const Generator = mod.KrnlFrontendGenerator || (mod as any).default?.KrnlFrontendGenerator;
+            const Builder = mod.KrnlFrontendBuilder || (mod as any).default?.KrnlFrontendBuilder;
+            if (Generator && typeof Generator.generate === "function") {
+                await Generator.generate(this, frontendDir);
+            }
+            if (Builder && typeof Builder.build === "function") {
+                await Builder.build(frontendDir);
+            }
+        } catch (err: any) {
+            console.warn("[Krng] Frontend generation/build warning:", err.message);
+        }
         console.log("Krng System initialized.");
     }
 }
@@ -109,5 +188,5 @@ export class Krng extends krnlSystemEntityBase {
 if (import.meta.url === `file://${process.argv[1]}`) {
     const port = Number(process.env.KRNL_PORT || 10091);
     const system = new Krng(port);
-    await system.boot();
+    system.boot().catch(console.error);
 }
