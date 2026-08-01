@@ -8,6 +8,8 @@ export default function Endpoint_UpdateKey() {
   const [error, setError] = useState<string | null>(null);
   const [phantomActive, setPhantomActive] = useState(false);
 
+  
+
   // Subscribe to live SSE events for phantom mirroring
   useEffect(() => {
     const sse = new EventSource('/sse/UpdateKey');
@@ -16,7 +18,10 @@ export default function Endpoint_UpdateKey() {
         const msg = JSON.parse(evt.data);
         if (msg.type === 'frontend:interaction' || msg.input !== undefined) {
           if (msg.input) setFormData((prev) => ({ ...prev, ...msg.input }));
-          if (msg.output !== undefined) setResponse(msg.output?.payload !== undefined ? msg.output.payload : msg.output);
+          if (msg.output !== undefined) {
+            const payload = msg.output?.payload !== undefined ? msg.output.payload : msg.output;
+            setResponse(payload);
+          }
           setPhantomActive(true);
           setTimeout(() => setPhantomActive(false), 2000);
         }
@@ -25,27 +30,41 @@ export default function Endpoint_UpdateKey() {
     return () => sse.close();
   }, []);
 
+  
+
+  // Populate output shared components when response arrives
+  useEffect(() => {
+    if (response === null) return;
+    
+  }, [response]);
+
   const handleInputChange = (field: string, val: any) => {
     setFormData((prev) => ({ ...prev, [field]: val }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const executeRequest = async (overrideData?: Record<string, any>) => {
     setLoading(true);
     setError(null);
     try {
+      const payloadData = overrideData || formData;
       const res = await fetch('api/UpdateKey', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(payloadData),
       });
       const data = await res.json();
-      setResponse(data.payload !== undefined ? data.payload : data);
+      const payload = data.payload !== undefined ? data.payload : data;
+      setResponse(payload);
     } catch (err: any) {
       setError(err.message || 'Request failed');
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    await executeRequest();
   };
 
   return (
@@ -70,9 +89,7 @@ export default function Endpoint_UpdateKey() {
       <form onSubmit={handleSubmit}>
         <KrnlTextInput label="Secret Key ID" value={formData['id'] || ''} onChange={(v) => handleInputChange('id', v)} placeholder="" />
         <KrnlTextInput label="New Secret Value" value={formData['value'] || ''} onChange={(v) => handleInputChange('value', v)} placeholder="" />
-        <KrnlButton type="submit" disabled={loading}>
-          {loading ? 'Executing...' : 'Execute UpdateKey'}
-        </KrnlButton>
+        <KrnlButton type="submit" disabled={loading} label={loading ? 'Executing...' : 'Execute UpdateKey'} icon="⚡" />
       </form>
 
       {error && <div style={{ color: 'var(--krnl-danger)', marginTop: '1rem' }}>Error: {error}</div>}

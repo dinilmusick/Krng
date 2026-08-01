@@ -1330,7 +1330,7 @@
           return dispatcher;
         }
         "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ && "function" === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(Error());
-        var React7 = require_react(), Internals = {
+        var React8 = require_react(), Internals = {
           d: {
             f: noop,
             r: function() {
@@ -1348,7 +1348,7 @@
           },
           p: 0,
           findDOMNode: null
-        }, REACT_PORTAL_TYPE = Symbol.for("react.portal"), ReactSharedInternals = React7.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE;
+        }, REACT_PORTAL_TYPE = Symbol.for("react.portal"), ReactSharedInternals = React8.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE;
         "function" === typeof Map && null != Map.prototype && "function" === typeof Map.prototype.forEach && "function" === typeof Set && null != Set.prototype && "function" === typeof Set.prototype.clear && "function" === typeof Set.prototype.forEach || console.error(
           "React depends on Map and Set built-in types. Make sure that you load a polyfill in older browsers. https://reactjs.org/link/react-polyfills"
         );
@@ -2883,7 +2883,7 @@
           "number" === type && getActiveElement(node.ownerDocument) === node || node.defaultValue === "" + value || (node.defaultValue = "" + value);
         }
         function validateOptionProps(element, props) {
-          null == props.value && ("object" === typeof props.children && null !== props.children ? React7.Children.forEach(props.children, function(child) {
+          null == props.value && ("object" === typeof props.children && null !== props.children ? React8.Children.forEach(props.children, function(child) {
             null == child || "string" === typeof child || "number" === typeof child || "bigint" === typeof child || didWarnInvalidChild || (didWarnInvalidChild = true, console.error(
               "Cannot infer the option value of complex children. Pass a `value` prop or use a plain string as children to <option>."
             ));
@@ -18515,14 +18515,14 @@
           ));
         }
         "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ && "function" === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(Error());
-        var Scheduler = require_scheduler(), React7 = require_react(), ReactDOM = require_react_dom(), assign = Object.assign, REACT_LEGACY_ELEMENT_TYPE = Symbol.for("react.element"), REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = Symbol.for("react.profiler"), REACT_CONSUMER_TYPE = Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = Symbol.for("react.memo"), REACT_LAZY_TYPE = Symbol.for("react.lazy");
+        var Scheduler = require_scheduler(), React8 = require_react(), ReactDOM = require_react_dom(), assign = Object.assign, REACT_LEGACY_ELEMENT_TYPE = Symbol.for("react.element"), REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = Symbol.for("react.profiler"), REACT_CONSUMER_TYPE = Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = Symbol.for("react.memo"), REACT_LAZY_TYPE = Symbol.for("react.lazy");
         Symbol.for("react.scope");
         var REACT_ACTIVITY_TYPE = Symbol.for("react.activity");
         Symbol.for("react.legacy_hidden");
         Symbol.for("react.tracing_marker");
         var REACT_MEMO_CACHE_SENTINEL = Symbol.for("react.memo_cache_sentinel");
         Symbol.for("react.view_transition");
-        var MAYBE_ITERATOR_SYMBOL = Symbol.iterator, REACT_CLIENT_REFERENCE = Symbol.for("react.client.reference"), isArrayImpl = Array.isArray, ReactSharedInternals = React7.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, ReactDOMSharedInternals = ReactDOM.__DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, NotPending = Object.freeze({
+        var MAYBE_ITERATOR_SYMBOL = Symbol.iterator, REACT_CLIENT_REFERENCE = Symbol.for("react.client.reference"), isArrayImpl = Array.isArray, ReactSharedInternals = React8.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, ReactDOMSharedInternals = ReactDOM.__DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, NotPending = Object.freeze({
           pending: false,
           data: null,
           method: null,
@@ -21310,7 +21310,7 @@
           }
         };
         (function() {
-          var isomorphicReactPackageVersion = React7.version;
+          var isomorphicReactPackageVersion = React8.version;
           if ("19.2.4" !== isomorphicReactPackageVersion)
             throw Error(
               'Incompatible React versions: The "react" and "react-dom" packages must have the exact same version. Instead got:\n  - react:      ' + (isomorphicReactPackageVersion + "\n  - react-dom:  19.2.4\nLearn more: https://react.dev/warnings/version-mismatch")
@@ -21664,18 +21664,18 @@
         function isValidElement(object) {
           return "object" === typeof object && null !== object && object.$$typeof === REACT_ELEMENT_TYPE;
         }
-        var React7 = require_react(), REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = Symbol.for("react.profiler"), REACT_CONSUMER_TYPE = Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = Symbol.for("react.memo"), REACT_LAZY_TYPE = Symbol.for("react.lazy"), REACT_ACTIVITY_TYPE = Symbol.for("react.activity"), REACT_CLIENT_REFERENCE = Symbol.for("react.client.reference"), ReactSharedInternals = React7.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, hasOwnProperty = Object.prototype.hasOwnProperty, isArrayImpl = Array.isArray, createTask = console.createTask ? console.createTask : function() {
+        var React8 = require_react(), REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = Symbol.for("react.profiler"), REACT_CONSUMER_TYPE = Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = Symbol.for("react.memo"), REACT_LAZY_TYPE = Symbol.for("react.lazy"), REACT_ACTIVITY_TYPE = Symbol.for("react.activity"), REACT_CLIENT_REFERENCE = Symbol.for("react.client.reference"), ReactSharedInternals = React8.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, hasOwnProperty = Object.prototype.hasOwnProperty, isArrayImpl = Array.isArray, createTask = console.createTask ? console.createTask : function() {
           return null;
         };
-        React7 = {
+        React8 = {
           react_stack_bottom_frame: function(callStackForError) {
             return callStackForError();
           }
         };
         var specialPropKeyWarningShown;
         var didWarnAboutElementRef = {};
-        var unknownOwnerDebugStack = React7.react_stack_bottom_frame.bind(
-          React7,
+        var unknownOwnerDebugStack = React8.react_stack_bottom_frame.bind(
+          React8,
           UnknownOwner
         )();
         var unknownOwnerDebugTask = createTask(getTaskName(UnknownOwner));
@@ -21720,16 +21720,27 @@
   });
 
   // frontend/src/index.tsx
-  var import_react6 = __toESM(require_react(), 1);
+  var import_react7 = __toESM(require_react(), 1);
   var import_client = __toESM(require_client(), 1);
-
-  // frontend/src/components/ListKeys/index.tsx
-  var import_react = __toESM(require_react(), 1);
 
   // frontend/src/atoms/KrnlButton.tsx
   var import_jsx_runtime = __toESM(require_jsx_runtime(), 1);
-  function KrnlButton({ label, onClick, disabled, loading }) {
-    return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { className: "krnl-btn", onClick, disabled: disabled || loading, children: loading ? "Processing..." : label });
+  function KrnlButton({ label, onClick, disabled, loading, variant = "primary", icon = "\u26A1", type, children }) {
+    const textLabel = label || (typeof children === "string" ? children : void 0) || "Action";
+    return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+      "button",
+      {
+        type: type || "button",
+        className: `krnl-btn krnl-btn-${variant}`,
+        onClick,
+        disabled: disabled || loading,
+        title: typeof textLabel === "string" ? textLabel : void 0,
+        children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "krnl-btn-icon", children: icon }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "krnl-btn-label", children: loading ? "Processing..." : children || textLabel })
+        ]
+      }
+    );
   }
 
   // frontend/src/atoms/KrnlTextInput.tsx
@@ -21750,43 +21761,84 @@
     ] });
   }
 
-  // frontend/src/atoms/KrnlTile.tsx
+  // frontend/src/atoms/KrnlNumberInput.tsx
   var import_jsx_runtime3 = __toESM(require_jsx_runtime(), 1);
-  function KrnlTile({ title, value }) {
-    return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "krnl-tile", children: [
-      title && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "krnl-tile-title", children: title }),
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "krnl-tile-value", children: typeof value === "object" ? JSON.stringify(value, null, 2) : String(value) })
-    ] });
-  }
+
+  // frontend/src/atoms/KrnlToggle.tsx
+  var import_jsx_runtime4 = __toESM(require_jsx_runtime(), 1);
+
+  // frontend/src/atoms/KrnlDropdown.tsx
+  var import_jsx_runtime5 = __toESM(require_jsx_runtime(), 1);
+
+  // frontend/src/atoms/KrnlTextArea.tsx
+  var import_jsx_runtime6 = __toESM(require_jsx_runtime(), 1);
+
+  // frontend/src/atoms/KrnlJsonInput.tsx
+  var import_jsx_runtime7 = __toESM(require_jsx_runtime(), 1);
 
   // frontend/src/atoms/KrnlJsonViewer.tsx
-  var import_jsx_runtime4 = __toESM(require_jsx_runtime(), 1);
+  var import_jsx_runtime8 = __toESM(require_jsx_runtime(), 1);
   function KrnlJsonViewer({ data, label }) {
-    return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "krnl-json-viewer", children: [
-      label && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "krnl-label", children: label }),
-      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("pre", { className: "krnl-json-code", children: JSON.stringify(data, null, 2) })
+    return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "krnl-json-viewer", children: [
+      label && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "krnl-label", children: label }),
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("pre", { className: "krnl-json-code", children: JSON.stringify(data, null, 2) })
     ] });
   }
 
   // frontend/src/atoms/KrnlCarousel.tsx
-  var import_jsx_runtime5 = __toESM(require_jsx_runtime(), 1);
+  var import_jsx_runtime9 = __toESM(require_jsx_runtime(), 1);
+
+  // frontend/src/atoms/KrnlTile.tsx
+  var import_jsx_runtime10 = __toESM(require_jsx_runtime(), 1);
+  function KrnlTile({ title, value }) {
+    return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { className: "krnl-tile", children: [
+      title && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: "krnl-tile-title", children: title }),
+      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: "krnl-tile-value", children: typeof value === "object" ? JSON.stringify(value, null, 2) : String(value) })
+    ] });
+  }
+
+  // frontend/src/atoms/KrnlSSELog.tsx
+  var import_jsx_runtime11 = __toESM(require_jsx_runtime(), 1);
+
+  // frontend/src/atoms/KrnlSharedState.tsx
+  var import_react = __toESM(require_react(), 1);
+  var import_jsx_runtime12 = __toESM(require_jsx_runtime(), 1);
+  var SharedComponentContext = (0, import_react.createContext)(/* @__PURE__ */ new Map());
+  var SharedComponentSetContext = (0, import_react.createContext)(() => {
+  });
+  function SharedComponentProvider({ children }) {
+    const [store, setStore] = (0, import_react.useState)(/* @__PURE__ */ new Map());
+    const update = (id, patch) => {
+      setStore((prev) => {
+        const m = new Map(prev);
+        const existing = m.get(id) || { options: [], value: null };
+        m.set(id, { ...existing, ...patch });
+        return m;
+      });
+    };
+    return /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(SharedComponentContext.Provider, { value: store, children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(SharedComponentSetContext.Provider, { value: update, children }) });
+  }
 
   // frontend/src/components/ListKeys/index.tsx
-  var import_jsx_runtime6 = __toESM(require_jsx_runtime(), 1);
+  var import_react2 = __toESM(require_react(), 1);
+  var import_jsx_runtime13 = __toESM(require_jsx_runtime(), 1);
   function Endpoint_ListKeys() {
-    const [formData, setFormData] = (0, import_react.useState)({});
-    const [response, setResponse] = (0, import_react.useState)(null);
-    const [loading, setLoading] = (0, import_react.useState)(false);
-    const [error, setError] = (0, import_react.useState)(null);
-    const [phantomActive, setPhantomActive] = (0, import_react.useState)(false);
-    (0, import_react.useEffect)(() => {
+    const [formData, setFormData] = (0, import_react2.useState)({});
+    const [response, setResponse] = (0, import_react2.useState)(null);
+    const [loading, setLoading] = (0, import_react2.useState)(false);
+    const [error, setError] = (0, import_react2.useState)(null);
+    const [phantomActive, setPhantomActive] = (0, import_react2.useState)(false);
+    (0, import_react2.useEffect)(() => {
       const sse = new EventSource("/sse/ListKeys");
       sse.onmessage = (evt) => {
         try {
           const msg = JSON.parse(evt.data);
           if (msg.type === "frontend:interaction" || msg.input !== void 0) {
             if (msg.input) setFormData((prev) => ({ ...prev, ...msg.input }));
-            if (msg.output !== void 0) setResponse(msg.output?.payload !== void 0 ? msg.output.payload : msg.output);
+            if (msg.output !== void 0) {
+              const payload = msg.output?.payload !== void 0 ? msg.output.payload : msg.output;
+              setResponse(payload);
+            }
             setPhantomActive(true);
             setTimeout(() => setPhantomActive(false), 2e3);
           }
@@ -21795,28 +21847,36 @@
       };
       return () => sse.close();
     }, []);
+    (0, import_react2.useEffect)(() => {
+      if (response === null) return;
+    }, [response]);
     const handleInputChange = (field, val) => {
       setFormData((prev) => ({ ...prev, [field]: val }));
     };
-    const handleSubmit = async (e) => {
-      e.preventDefault();
+    const executeRequest = async (overrideData) => {
       setLoading(true);
       setError(null);
       try {
+        const payloadData = overrideData || formData;
         const res = await fetch("api/ListKeys", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData)
+          body: JSON.stringify(payloadData)
         });
         const data = await res.json();
-        setResponse(data.payload !== void 0 ? data.payload : data);
+        const payload = data.payload !== void 0 ? data.payload : data;
+        setResponse(payload);
       } catch (err) {
         setError(err.message || "Request failed");
       } finally {
         setLoading(false);
       }
     };
-    return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      await executeRequest();
+    };
+    return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(
       "div",
       {
         className: `krnl-endpoint-card ${phantomActive ? "krnl-phantom-active" : ""}`,
@@ -21830,16 +21890,16 @@
           position: "relative"
         },
         children: [
-          phantomActive && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "krnl-phantom-badge", style: { position: "absolute", top: "12px", right: "12px", background: "var(--krnl-accent)", color: "#000", padding: "0.2rem 0.6rem", borderRadius: "12px", fontSize: "0.75rem", fontWeight: "bold" }, children: "\u{1F916} Phantom Execution Active" }),
-          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h3", { style: { marginBottom: "1rem", color: "var(--krnl-primary)" }, children: "Endpoint: ListKeys" }),
-          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("form", { onSubmit: handleSubmit, children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(KrnlButton, { type: "submit", disabled: loading, children: loading ? "Executing..." : "Execute ListKeys" }) }),
-          error && /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { style: { color: "var(--krnl-danger)", marginTop: "1rem" }, children: [
+          phantomActive && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "krnl-phantom-badge", style: { position: "absolute", top: "12px", right: "12px", background: "var(--krnl-accent)", color: "#000", padding: "0.2rem 0.6rem", borderRadius: "12px", fontSize: "0.75rem", fontWeight: "bold" }, children: "\u{1F916} Phantom Execution Active" }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("h3", { style: { marginBottom: "1rem", color: "var(--krnl-primary)" }, children: "Endpoint: ListKeys" }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("form", { onSubmit: handleSubmit, children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(KrnlButton, { type: "submit", disabled: loading, label: loading ? "Executing..." : "Execute ListKeys", icon: "\u26A1" }) }),
+          error && /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { color: "var(--krnl-danger)", marginTop: "1rem" }, children: [
             "Error: ",
             error
           ] }),
-          response !== null && /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { style: { marginTop: "1.5rem", borderTop: "1px solid var(--krnl-border-color)", paddingTop: "1rem" }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h4", { style: { marginBottom: "0.5rem", color: "var(--krnl-accent)" }, children: "Output Response" }),
-            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(KrnlJsonViewer, { label: "Stored Secrets Vault", data: response["keys"] !== void 0 ? response["keys"] : response })
+          response !== null && /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { marginTop: "1.5rem", borderTop: "1px solid var(--krnl-border-color)", paddingTop: "1rem" }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("h4", { style: { marginBottom: "0.5rem", color: "var(--krnl-accent)" }, children: "Output Response" }),
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(KrnlJsonViewer, { label: "Stored Secrets Vault", data: response["keys"] !== void 0 ? response["keys"] : response })
           ] })
         ]
       }
@@ -21847,22 +21907,25 @@
   }
 
   // frontend/src/components/RetrieveKey/index.tsx
-  var import_react2 = __toESM(require_react(), 1);
-  var import_jsx_runtime7 = __toESM(require_jsx_runtime(), 1);
+  var import_react3 = __toESM(require_react(), 1);
+  var import_jsx_runtime14 = __toESM(require_jsx_runtime(), 1);
   function Endpoint_RetrieveKey() {
-    const [formData, setFormData] = (0, import_react2.useState)({});
-    const [response, setResponse] = (0, import_react2.useState)(null);
-    const [loading, setLoading] = (0, import_react2.useState)(false);
-    const [error, setError] = (0, import_react2.useState)(null);
-    const [phantomActive, setPhantomActive] = (0, import_react2.useState)(false);
-    (0, import_react2.useEffect)(() => {
+    const [formData, setFormData] = (0, import_react3.useState)({});
+    const [response, setResponse] = (0, import_react3.useState)(null);
+    const [loading, setLoading] = (0, import_react3.useState)(false);
+    const [error, setError] = (0, import_react3.useState)(null);
+    const [phantomActive, setPhantomActive] = (0, import_react3.useState)(false);
+    (0, import_react3.useEffect)(() => {
       const sse = new EventSource("/sse/RetrieveKey");
       sse.onmessage = (evt) => {
         try {
           const msg = JSON.parse(evt.data);
           if (msg.type === "frontend:interaction" || msg.input !== void 0) {
             if (msg.input) setFormData((prev) => ({ ...prev, ...msg.input }));
-            if (msg.output !== void 0) setResponse(msg.output?.payload !== void 0 ? msg.output.payload : msg.output);
+            if (msg.output !== void 0) {
+              const payload = msg.output?.payload !== void 0 ? msg.output.payload : msg.output;
+              setResponse(payload);
+            }
             setPhantomActive(true);
             setTimeout(() => setPhantomActive(false), 2e3);
           }
@@ -21871,28 +21934,36 @@
       };
       return () => sse.close();
     }, []);
+    (0, import_react3.useEffect)(() => {
+      if (response === null) return;
+    }, [response]);
     const handleInputChange = (field, val) => {
       setFormData((prev) => ({ ...prev, [field]: val }));
     };
-    const handleSubmit = async (e) => {
-      e.preventDefault();
+    const executeRequest = async (overrideData) => {
       setLoading(true);
       setError(null);
       try {
+        const payloadData = overrideData || formData;
         const res = await fetch("api/RetrieveKey", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData)
+          body: JSON.stringify(payloadData)
         });
         const data = await res.json();
-        setResponse(data.payload !== void 0 ? data.payload : data);
+        const payload = data.payload !== void 0 ? data.payload : data;
+        setResponse(payload);
       } catch (err) {
         setError(err.message || "Request failed");
       } finally {
         setLoading(false);
       }
     };
-    return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      await executeRequest();
+    };
+    return /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(
       "div",
       {
         className: `krnl-endpoint-card ${phantomActive ? "krnl-phantom-active" : ""}`,
@@ -21906,19 +21977,19 @@
           position: "relative"
         },
         children: [
-          phantomActive && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "krnl-phantom-badge", style: { position: "absolute", top: "12px", right: "12px", background: "var(--krnl-accent)", color: "#000", padding: "0.2rem 0.6rem", borderRadius: "12px", fontSize: "0.75rem", fontWeight: "bold" }, children: "\u{1F916} Phantom Execution Active" }),
-          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("h3", { style: { marginBottom: "1rem", color: "var(--krnl-primary)" }, children: "Endpoint: RetrieveKey" }),
-          /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("form", { onSubmit: handleSubmit, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(KrnlTextInput, { label: "Secret Key ID", value: formData["id"] || "", onChange: (v) => handleInputChange("id", v), placeholder: "e.g. gemini_key" }),
-            /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(KrnlButton, { type: "submit", disabled: loading, children: loading ? "Executing..." : "Execute RetrieveKey" })
+          phantomActive && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("div", { className: "krnl-phantom-badge", style: { position: "absolute", top: "12px", right: "12px", background: "var(--krnl-accent)", color: "#000", padding: "0.2rem 0.6rem", borderRadius: "12px", fontSize: "0.75rem", fontWeight: "bold" }, children: "\u{1F916} Phantom Execution Active" }),
+          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("h3", { style: { marginBottom: "1rem", color: "var(--krnl-primary)" }, children: "Endpoint: RetrieveKey" }),
+          /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("form", { onSubmit: handleSubmit, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(KrnlTextInput, { label: "Secret Key ID", value: formData["id"] || "", onChange: (v) => handleInputChange("id", v), placeholder: "e.g. gemini_key" }),
+            /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(KrnlButton, { type: "submit", disabled: loading, label: loading ? "Executing..." : "Execute RetrieveKey", icon: "\u26A1" })
           ] }),
-          error && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { color: "var(--krnl-danger)", marginTop: "1rem" }, children: [
+          error && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { style: { color: "var(--krnl-danger)", marginTop: "1rem" }, children: [
             "Error: ",
             error
           ] }),
-          response !== null && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { marginTop: "1.5rem", borderTop: "1px solid var(--krnl-border-color)", paddingTop: "1rem" }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("h4", { style: { marginBottom: "0.5rem", color: "var(--krnl-accent)" }, children: "Output Response" }),
-            /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(KrnlTile, { title: "Decrypted Secret Value", value: String(response["value"] !== void 0 ? response["value"] : response) })
+          response !== null && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { style: { marginTop: "1.5rem", borderTop: "1px solid var(--krnl-border-color)", paddingTop: "1rem" }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("h4", { style: { marginBottom: "0.5rem", color: "var(--krnl-accent)" }, children: "Output Response" }),
+            /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(KrnlTile, { title: "Decrypted Secret Value", value: String(response["value"] !== void 0 ? response["value"] : response) })
           ] })
         ]
       }
@@ -21926,22 +21997,25 @@
   }
 
   // frontend/src/components/StoreKey/index.tsx
-  var import_react3 = __toESM(require_react(), 1);
-  var import_jsx_runtime8 = __toESM(require_jsx_runtime(), 1);
+  var import_react4 = __toESM(require_react(), 1);
+  var import_jsx_runtime15 = __toESM(require_jsx_runtime(), 1);
   function Endpoint_StoreKey() {
-    const [formData, setFormData] = (0, import_react3.useState)({});
-    const [response, setResponse] = (0, import_react3.useState)(null);
-    const [loading, setLoading] = (0, import_react3.useState)(false);
-    const [error, setError] = (0, import_react3.useState)(null);
-    const [phantomActive, setPhantomActive] = (0, import_react3.useState)(false);
-    (0, import_react3.useEffect)(() => {
+    const [formData, setFormData] = (0, import_react4.useState)({});
+    const [response, setResponse] = (0, import_react4.useState)(null);
+    const [loading, setLoading] = (0, import_react4.useState)(false);
+    const [error, setError] = (0, import_react4.useState)(null);
+    const [phantomActive, setPhantomActive] = (0, import_react4.useState)(false);
+    (0, import_react4.useEffect)(() => {
       const sse = new EventSource("/sse/StoreKey");
       sse.onmessage = (evt) => {
         try {
           const msg = JSON.parse(evt.data);
           if (msg.type === "frontend:interaction" || msg.input !== void 0) {
             if (msg.input) setFormData((prev) => ({ ...prev, ...msg.input }));
-            if (msg.output !== void 0) setResponse(msg.output?.payload !== void 0 ? msg.output.payload : msg.output);
+            if (msg.output !== void 0) {
+              const payload = msg.output?.payload !== void 0 ? msg.output.payload : msg.output;
+              setResponse(payload);
+            }
             setPhantomActive(true);
             setTimeout(() => setPhantomActive(false), 2e3);
           }
@@ -21950,28 +22024,36 @@
       };
       return () => sse.close();
     }, []);
+    (0, import_react4.useEffect)(() => {
+      if (response === null) return;
+    }, [response]);
     const handleInputChange = (field, val) => {
       setFormData((prev) => ({ ...prev, [field]: val }));
     };
-    const handleSubmit = async (e) => {
-      e.preventDefault();
+    const executeRequest = async (overrideData) => {
       setLoading(true);
       setError(null);
       try {
+        const payloadData = overrideData || formData;
         const res = await fetch("api/StoreKey", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData)
+          body: JSON.stringify(payloadData)
         });
         const data = await res.json();
-        setResponse(data.payload !== void 0 ? data.payload : data);
+        const payload = data.payload !== void 0 ? data.payload : data;
+        setResponse(payload);
       } catch (err) {
         setError(err.message || "Request failed");
       } finally {
         setLoading(false);
       }
     };
-    return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      await executeRequest();
+    };
+    return /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(
       "div",
       {
         className: `krnl-endpoint-card ${phantomActive ? "krnl-phantom-active" : ""}`,
@@ -21985,20 +22067,20 @@
           position: "relative"
         },
         children: [
-          phantomActive && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "krnl-phantom-badge", style: { position: "absolute", top: "12px", right: "12px", background: "var(--krnl-accent)", color: "#000", padding: "0.2rem 0.6rem", borderRadius: "12px", fontSize: "0.75rem", fontWeight: "bold" }, children: "\u{1F916} Phantom Execution Active" }),
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("h3", { style: { marginBottom: "1rem", color: "var(--krnl-primary)" }, children: "Endpoint: StoreKey" }),
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("form", { onSubmit: handleSubmit, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(KrnlTextInput, { label: "Secret Key ID", value: formData["id"] || "", onChange: (v) => handleInputChange("id", v), placeholder: "e.g. gemini_key" }),
-            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(KrnlTextInput, { label: "Secret Value", value: formData["value"] || "", onChange: (v) => handleInputChange("value", v), placeholder: "Enter secret value..." }),
-            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(KrnlButton, { type: "submit", disabled: loading, children: loading ? "Executing..." : "Execute StoreKey" })
+          phantomActive && /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "krnl-phantom-badge", style: { position: "absolute", top: "12px", right: "12px", background: "var(--krnl-accent)", color: "#000", padding: "0.2rem 0.6rem", borderRadius: "12px", fontSize: "0.75rem", fontWeight: "bold" }, children: "\u{1F916} Phantom Execution Active" }),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("h3", { style: { marginBottom: "1rem", color: "var(--krnl-primary)" }, children: "Endpoint: StoreKey" }),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("form", { onSubmit: handleSubmit, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(KrnlTextInput, { label: "Secret Key ID", value: formData["id"] || "", onChange: (v) => handleInputChange("id", v), placeholder: "e.g. gemini_key" }),
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(KrnlTextInput, { label: "Secret Value", value: formData["value"] || "", onChange: (v) => handleInputChange("value", v), placeholder: "Enter secret value..." }),
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(KrnlButton, { type: "submit", disabled: loading, label: loading ? "Executing..." : "Execute StoreKey", icon: "\u26A1" })
           ] }),
-          error && /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { color: "var(--krnl-danger)", marginTop: "1rem" }, children: [
+          error && /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { style: { color: "var(--krnl-danger)", marginTop: "1rem" }, children: [
             "Error: ",
             error
           ] }),
-          response !== null && /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { marginTop: "1.5rem", borderTop: "1px solid var(--krnl-border-color)", paddingTop: "1rem" }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("h4", { style: { marginBottom: "0.5rem", color: "var(--krnl-accent)" }, children: "Output Response" }),
-            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(KrnlTile, { title: "Status", value: String(response["status"] !== void 0 ? response["status"] : response) })
+          response !== null && /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { style: { marginTop: "1.5rem", borderTop: "1px solid var(--krnl-border-color)", paddingTop: "1rem" }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("h4", { style: { marginBottom: "0.5rem", color: "var(--krnl-accent)" }, children: "Output Response" }),
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(KrnlTile, { title: "Status", value: String(response["status"] !== void 0 ? response["status"] : response) })
           ] })
         ]
       }
@@ -22006,22 +22088,25 @@
   }
 
   // frontend/src/components/UpdateKey/index.tsx
-  var import_react4 = __toESM(require_react(), 1);
-  var import_jsx_runtime9 = __toESM(require_jsx_runtime(), 1);
+  var import_react5 = __toESM(require_react(), 1);
+  var import_jsx_runtime16 = __toESM(require_jsx_runtime(), 1);
   function Endpoint_UpdateKey() {
-    const [formData, setFormData] = (0, import_react4.useState)({});
-    const [response, setResponse] = (0, import_react4.useState)(null);
-    const [loading, setLoading] = (0, import_react4.useState)(false);
-    const [error, setError] = (0, import_react4.useState)(null);
-    const [phantomActive, setPhantomActive] = (0, import_react4.useState)(false);
-    (0, import_react4.useEffect)(() => {
+    const [formData, setFormData] = (0, import_react5.useState)({});
+    const [response, setResponse] = (0, import_react5.useState)(null);
+    const [loading, setLoading] = (0, import_react5.useState)(false);
+    const [error, setError] = (0, import_react5.useState)(null);
+    const [phantomActive, setPhantomActive] = (0, import_react5.useState)(false);
+    (0, import_react5.useEffect)(() => {
       const sse = new EventSource("/sse/UpdateKey");
       sse.onmessage = (evt) => {
         try {
           const msg = JSON.parse(evt.data);
           if (msg.type === "frontend:interaction" || msg.input !== void 0) {
             if (msg.input) setFormData((prev) => ({ ...prev, ...msg.input }));
-            if (msg.output !== void 0) setResponse(msg.output?.payload !== void 0 ? msg.output.payload : msg.output);
+            if (msg.output !== void 0) {
+              const payload = msg.output?.payload !== void 0 ? msg.output.payload : msg.output;
+              setResponse(payload);
+            }
             setPhantomActive(true);
             setTimeout(() => setPhantomActive(false), 2e3);
           }
@@ -22030,28 +22115,36 @@
       };
       return () => sse.close();
     }, []);
+    (0, import_react5.useEffect)(() => {
+      if (response === null) return;
+    }, [response]);
     const handleInputChange = (field, val) => {
       setFormData((prev) => ({ ...prev, [field]: val }));
     };
-    const handleSubmit = async (e) => {
-      e.preventDefault();
+    const executeRequest = async (overrideData) => {
       setLoading(true);
       setError(null);
       try {
+        const payloadData = overrideData || formData;
         const res = await fetch("api/UpdateKey", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData)
+          body: JSON.stringify(payloadData)
         });
         const data = await res.json();
-        setResponse(data.payload !== void 0 ? data.payload : data);
+        const payload = data.payload !== void 0 ? data.payload : data;
+        setResponse(payload);
       } catch (err) {
         setError(err.message || "Request failed");
       } finally {
         setLoading(false);
       }
     };
-    return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      await executeRequest();
+    };
+    return /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(
       "div",
       {
         className: `krnl-endpoint-card ${phantomActive ? "krnl-phantom-active" : ""}`,
@@ -22065,20 +22158,20 @@
           position: "relative"
         },
         children: [
-          phantomActive && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "krnl-phantom-badge", style: { position: "absolute", top: "12px", right: "12px", background: "var(--krnl-accent)", color: "#000", padding: "0.2rem 0.6rem", borderRadius: "12px", fontSize: "0.75rem", fontWeight: "bold" }, children: "\u{1F916} Phantom Execution Active" }),
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("h3", { style: { marginBottom: "1rem", color: "var(--krnl-primary)" }, children: "Endpoint: UpdateKey" }),
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("form", { onSubmit: handleSubmit, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(KrnlTextInput, { label: "Secret Key ID", value: formData["id"] || "", onChange: (v) => handleInputChange("id", v), placeholder: "" }),
-            /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(KrnlTextInput, { label: "New Secret Value", value: formData["value"] || "", onChange: (v) => handleInputChange("value", v), placeholder: "" }),
-            /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(KrnlButton, { type: "submit", disabled: loading, children: loading ? "Executing..." : "Execute UpdateKey" })
+          phantomActive && /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "krnl-phantom-badge", style: { position: "absolute", top: "12px", right: "12px", background: "var(--krnl-accent)", color: "#000", padding: "0.2rem 0.6rem", borderRadius: "12px", fontSize: "0.75rem", fontWeight: "bold" }, children: "\u{1F916} Phantom Execution Active" }),
+          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("h3", { style: { marginBottom: "1rem", color: "var(--krnl-primary)" }, children: "Endpoint: UpdateKey" }),
+          /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("form", { onSubmit: handleSubmit, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(KrnlTextInput, { label: "Secret Key ID", value: formData["id"] || "", onChange: (v) => handleInputChange("id", v), placeholder: "" }),
+            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(KrnlTextInput, { label: "New Secret Value", value: formData["value"] || "", onChange: (v) => handleInputChange("value", v), placeholder: "" }),
+            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(KrnlButton, { type: "submit", disabled: loading, label: loading ? "Executing..." : "Execute UpdateKey", icon: "\u26A1" })
           ] }),
-          error && /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { color: "var(--krnl-danger)", marginTop: "1rem" }, children: [
+          error && /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { style: { color: "var(--krnl-danger)", marginTop: "1rem" }, children: [
             "Error: ",
             error
           ] }),
-          response !== null && /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { marginTop: "1.5rem", borderTop: "1px solid var(--krnl-border-color)", paddingTop: "1rem" }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("h4", { style: { marginBottom: "0.5rem", color: "var(--krnl-accent)" }, children: "Output Response" }),
-            /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(KrnlTile, { title: "Status", value: String(response["status"] !== void 0 ? response["status"] : response) })
+          response !== null && /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { style: { marginTop: "1.5rem", borderTop: "1px solid var(--krnl-border-color)", paddingTop: "1rem" }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("h4", { style: { marginBottom: "0.5rem", color: "var(--krnl-accent)" }, children: "Output Response" }),
+            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(KrnlTile, { title: "Status", value: String(response["status"] !== void 0 ? response["status"] : response) })
           ] })
         ]
       }
@@ -22086,22 +22179,25 @@
   }
 
   // frontend/src/components/DeleteKey/index.tsx
-  var import_react5 = __toESM(require_react(), 1);
-  var import_jsx_runtime10 = __toESM(require_jsx_runtime(), 1);
+  var import_react6 = __toESM(require_react(), 1);
+  var import_jsx_runtime17 = __toESM(require_jsx_runtime(), 1);
   function Endpoint_DeleteKey() {
-    const [formData, setFormData] = (0, import_react5.useState)({});
-    const [response, setResponse] = (0, import_react5.useState)(null);
-    const [loading, setLoading] = (0, import_react5.useState)(false);
-    const [error, setError] = (0, import_react5.useState)(null);
-    const [phantomActive, setPhantomActive] = (0, import_react5.useState)(false);
-    (0, import_react5.useEffect)(() => {
+    const [formData, setFormData] = (0, import_react6.useState)({});
+    const [response, setResponse] = (0, import_react6.useState)(null);
+    const [loading, setLoading] = (0, import_react6.useState)(false);
+    const [error, setError] = (0, import_react6.useState)(null);
+    const [phantomActive, setPhantomActive] = (0, import_react6.useState)(false);
+    (0, import_react6.useEffect)(() => {
       const sse = new EventSource("/sse/DeleteKey");
       sse.onmessage = (evt) => {
         try {
           const msg = JSON.parse(evt.data);
           if (msg.type === "frontend:interaction" || msg.input !== void 0) {
             if (msg.input) setFormData((prev) => ({ ...prev, ...msg.input }));
-            if (msg.output !== void 0) setResponse(msg.output?.payload !== void 0 ? msg.output.payload : msg.output);
+            if (msg.output !== void 0) {
+              const payload = msg.output?.payload !== void 0 ? msg.output.payload : msg.output;
+              setResponse(payload);
+            }
             setPhantomActive(true);
             setTimeout(() => setPhantomActive(false), 2e3);
           }
@@ -22110,28 +22206,36 @@
       };
       return () => sse.close();
     }, []);
+    (0, import_react6.useEffect)(() => {
+      if (response === null) return;
+    }, [response]);
     const handleInputChange = (field, val) => {
       setFormData((prev) => ({ ...prev, [field]: val }));
     };
-    const handleSubmit = async (e) => {
-      e.preventDefault();
+    const executeRequest = async (overrideData) => {
       setLoading(true);
       setError(null);
       try {
+        const payloadData = overrideData || formData;
         const res = await fetch("api/DeleteKey", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData)
+          body: JSON.stringify(payloadData)
         });
         const data = await res.json();
-        setResponse(data.payload !== void 0 ? data.payload : data);
+        const payload = data.payload !== void 0 ? data.payload : data;
+        setResponse(payload);
       } catch (err) {
         setError(err.message || "Request failed");
       } finally {
         setLoading(false);
       }
     };
-    return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      await executeRequest();
+    };
+    return /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)(
       "div",
       {
         className: `krnl-endpoint-card ${phantomActive ? "krnl-phantom-active" : ""}`,
@@ -22145,19 +22249,19 @@
           position: "relative"
         },
         children: [
-          phantomActive && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: "krnl-phantom-badge", style: { position: "absolute", top: "12px", right: "12px", background: "var(--krnl-accent)", color: "#000", padding: "0.2rem 0.6rem", borderRadius: "12px", fontSize: "0.75rem", fontWeight: "bold" }, children: "\u{1F916} Phantom Execution Active" }),
-          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("h3", { style: { marginBottom: "1rem", color: "var(--krnl-primary)" }, children: "Endpoint: DeleteKey" }),
-          /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("form", { onSubmit: handleSubmit, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(KrnlTextInput, { label: "Secret Key ID", value: formData["id"] || "", onChange: (v) => handleInputChange("id", v), placeholder: "" }),
-            /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(KrnlButton, { type: "submit", disabled: loading, children: loading ? "Executing..." : "Execute DeleteKey" })
+          phantomActive && /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "krnl-phantom-badge", style: { position: "absolute", top: "12px", right: "12px", background: "var(--krnl-accent)", color: "#000", padding: "0.2rem 0.6rem", borderRadius: "12px", fontSize: "0.75rem", fontWeight: "bold" }, children: "\u{1F916} Phantom Execution Active" }),
+          /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("h3", { style: { marginBottom: "1rem", color: "var(--krnl-primary)" }, children: "Endpoint: DeleteKey" }),
+          /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("form", { onSubmit: handleSubmit, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(KrnlTextInput, { label: "Secret Key ID", value: formData["id"] || "", onChange: (v) => handleInputChange("id", v), placeholder: "" }),
+            /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(KrnlButton, { type: "submit", disabled: loading, label: loading ? "Executing..." : "Execute DeleteKey", icon: "\u26A1" })
           ] }),
-          error && /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { style: { color: "var(--krnl-danger)", marginTop: "1rem" }, children: [
+          error && /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { style: { color: "var(--krnl-danger)", marginTop: "1rem" }, children: [
             "Error: ",
             error
           ] }),
-          response !== null && /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { style: { marginTop: "1.5rem", borderTop: "1px solid var(--krnl-border-color)", paddingTop: "1rem" }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("h4", { style: { marginBottom: "0.5rem", color: "var(--krnl-accent)" }, children: "Output Response" }),
-            /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(KrnlTile, { title: "Status", value: String(response["status"] !== void 0 ? response["status"] : response) })
+          response !== null && /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { style: { marginTop: "1.5rem", borderTop: "1px solid var(--krnl-border-color)", paddingTop: "1rem" }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("h4", { style: { marginBottom: "0.5rem", color: "var(--krnl-accent)" }, children: "Output Response" }),
+            /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(KrnlTile, { title: "Status", value: String(response["status"] !== void 0 ? response["status"] : response) })
           ] })
         ]
       }
@@ -22165,34 +22269,34 @@
   }
 
   // frontend/src/index.tsx
-  var import_jsx_runtime11 = __toESM(require_jsx_runtime(), 1);
+  var import_jsx_runtime18 = __toESM(require_jsx_runtime(), 1);
   function AppShell() {
-    const [activeTab, setActiveTab] = (0, import_react6.useState)("ListKeys");
-    return /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "krnl-app-shell", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("header", { className: "krnl-header", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: "0.75rem" }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { style: { fontSize: "1.5rem" }, children: "\u{1F537}" }),
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("h1", { style: { fontSize: "1.25rem", fontWeight: 700 }, children: "Krng" })
+    const [activeTab, setActiveTab] = (0, import_react7.useState)("ListKeys");
+    return /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(SharedComponentProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { className: "krnl-app-shell", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("header", { className: "krnl-header", children: /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: "0.65rem" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("span", { style: { fontSize: "1.2rem", lineHeight: 1 }, children: "\u2B21" }),
+        /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("h1", { children: "Krng" })
       ] }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "krnl-nav-tabs", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("button", { className: `krnl-tab-btn ${activeTab === "ListKeys" ? "active" : ""}`, onClick: () => setActiveTab("ListKeys"), children: "ListKeys" }),
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("button", { className: `krnl-tab-btn ${activeTab === "RetrieveKey" ? "active" : ""}`, onClick: () => setActiveTab("RetrieveKey"), children: "RetrieveKey" }),
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("button", { className: `krnl-tab-btn ${activeTab === "StoreKey" ? "active" : ""}`, onClick: () => setActiveTab("StoreKey"), children: "StoreKey" }),
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("button", { className: `krnl-tab-btn ${activeTab === "UpdateKey" ? "active" : ""}`, onClick: () => setActiveTab("UpdateKey"), children: "UpdateKey" }),
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("button", { className: `krnl-tab-btn ${activeTab === "DeleteKey" ? "active" : ""}`, onClick: () => setActiveTab("DeleteKey"), children: "DeleteKey" })
+      /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { className: "krnl-nav-tabs", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("button", { className: `krnl-tab-btn ${activeTab === "ListKeys" ? "active" : ""}`, onClick: () => setActiveTab("ListKeys"), children: "ListKeys" }),
+        /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("button", { className: `krnl-tab-btn ${activeTab === "RetrieveKey" ? "active" : ""}`, onClick: () => setActiveTab("RetrieveKey"), children: "RetrieveKey" }),
+        /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("button", { className: `krnl-tab-btn ${activeTab === "StoreKey" ? "active" : ""}`, onClick: () => setActiveTab("StoreKey"), children: "StoreKey" }),
+        /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("button", { className: `krnl-tab-btn ${activeTab === "UpdateKey" ? "active" : ""}`, onClick: () => setActiveTab("UpdateKey"), children: "UpdateKey" }),
+        /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("button", { className: `krnl-tab-btn ${activeTab === "DeleteKey" ? "active" : ""}`, onClick: () => setActiveTab("DeleteKey"), children: "DeleteKey" })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("main", { className: "krnl-main-body", children: [
-        activeTab === "ListKeys" && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(Endpoint_ListKeys, {}),
-        activeTab === "RetrieveKey" && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(Endpoint_RetrieveKey, {}),
-        activeTab === "StoreKey" && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(Endpoint_StoreKey, {}),
-        activeTab === "UpdateKey" && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(Endpoint_UpdateKey, {}),
-        activeTab === "DeleteKey" && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(Endpoint_DeleteKey, {})
+      /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("main", { className: "krnl-main-body", children: [
+        activeTab === "ListKeys" && /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(Endpoint_ListKeys, {}),
+        activeTab === "RetrieveKey" && /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(Endpoint_RetrieveKey, {}),
+        activeTab === "StoreKey" && /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(Endpoint_StoreKey, {}),
+        activeTab === "UpdateKey" && /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(Endpoint_UpdateKey, {}),
+        activeTab === "DeleteKey" && /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(Endpoint_DeleteKey, {})
       ] })
-    ] });
+    ] }) });
   }
   var rootElement = document.getElementById("root");
   if (rootElement) {
     const root = (0, import_client.createRoot)(rootElement);
-    root.render(/* @__PURE__ */ (0, import_jsx_runtime11.jsx)(AppShell, {}));
+    root.render(/* @__PURE__ */ (0, import_jsx_runtime18.jsx)(AppShell, {}));
   }
 })();
 /*! Bundled license information:
