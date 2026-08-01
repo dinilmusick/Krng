@@ -26,9 +26,9 @@
     mod
   ));
 
-  // ../../../../node_modules/react/cjs/react.development.js
+  // node_modules/react/cjs/react.development.js
   var require_react_development = __commonJS({
-    "../../../../node_modules/react/cjs/react.development.js"(exports, module) {
+    "node_modules/react/cjs/react.development.js"(exports, module) {
       "use strict";
       (function() {
         function defineDeprecationWarning(methodName, info) {
@@ -992,15 +992,15 @@
         exports.useTransition = function() {
           return resolveDispatcher().useTransition();
         };
-        exports.version = "19.2.4";
+        exports.version = "19.2.8";
         "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ && "function" === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(Error());
       })();
     }
   });
 
-  // ../../../../node_modules/react/index.js
+  // node_modules/react/index.js
   var require_react = __commonJS({
-    "../../../../node_modules/react/index.js"(exports, module) {
+    "node_modules/react/index.js"(exports, module) {
       "use strict";
       if (false) {
         module.exports = null;
@@ -1010,9 +1010,9 @@
     }
   });
 
-  // ../../../../node_modules/scheduler/cjs/scheduler.development.js
+  // node_modules/scheduler/cjs/scheduler.development.js
   var require_scheduler_development = __commonJS({
-    "../../../../node_modules/scheduler/cjs/scheduler.development.js"(exports) {
+    "node_modules/scheduler/cjs/scheduler.development.js"(exports) {
       "use strict";
       (function() {
         function performWorkUntilDeadline() {
@@ -1269,9 +1269,9 @@
     }
   });
 
-  // ../../../../node_modules/scheduler/index.js
+  // node_modules/scheduler/index.js
   var require_scheduler = __commonJS({
-    "../../../../node_modules/scheduler/index.js"(exports, module) {
+    "node_modules/scheduler/index.js"(exports, module) {
       "use strict";
       if (false) {
         module.exports = null;
@@ -1281,9 +1281,9 @@
     }
   });
 
-  // ../../../../node_modules/react-dom/cjs/react-dom.development.js
+  // node_modules/react-dom/cjs/react-dom.development.js
   var require_react_dom_development = __commonJS({
-    "../../../../node_modules/react-dom/cjs/react-dom.development.js"(exports) {
+    "node_modules/react-dom/cjs/react-dom.development.js"(exports) {
       "use strict";
       (function() {
         function noop() {
@@ -1330,7 +1330,7 @@
           return dispatcher;
         }
         "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ && "function" === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(Error());
-        var React8 = require_react(), Internals = {
+        var React9 = require_react(), Internals = {
           d: {
             f: noop,
             r: function() {
@@ -1348,7 +1348,7 @@
           },
           p: 0,
           findDOMNode: null
-        }, REACT_PORTAL_TYPE = Symbol.for("react.portal"), ReactSharedInternals = React8.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE;
+        }, REACT_PORTAL_TYPE = Symbol.for("react.portal"), ReactSharedInternals = React9.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE;
         "function" === typeof Map && null != Map.prototype && "function" === typeof Map.prototype.forEach && "function" === typeof Set && null != Set.prototype && "function" === typeof Set.prototype.clear && "function" === typeof Set.prototype.forEach || console.error(
           "React depends on Map and Set built-in types. Make sure that you load a polyfill in older browsers. https://reactjs.org/link/react-polyfills"
         );
@@ -1519,15 +1519,15 @@
         exports.useFormStatus = function() {
           return resolveDispatcher().useHostTransitionStatus();
         };
-        exports.version = "19.2.4";
+        exports.version = "19.2.8";
         "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ && "function" === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(Error());
       })();
     }
   });
 
-  // ../../../../node_modules/react-dom/index.js
+  // node_modules/react-dom/index.js
   var require_react_dom = __commonJS({
-    "../../../../node_modules/react-dom/index.js"(exports, module) {
+    "node_modules/react-dom/index.js"(exports, module) {
       "use strict";
       if (false) {
         checkDCE();
@@ -1538,9 +1538,9 @@
     }
   });
 
-  // ../../../../node_modules/react-dom/cjs/react-dom-client.development.js
+  // node_modules/react-dom/cjs/react-dom-client.development.js
   var require_react_dom_client_development = __commonJS({
-    "../../../../node_modules/react-dom/cjs/react-dom-client.development.js"(exports) {
+    "node_modules/react-dom/cjs/react-dom-client.development.js"(exports) {
       "use strict";
       (function() {
         function findHook(fiber, id) {
@@ -2883,7 +2883,7 @@
           "number" === type && getActiveElement(node.ownerDocument) === node || node.defaultValue === "" + value || (node.defaultValue = "" + value);
         }
         function validateOptionProps(element, props) {
-          null == props.value && ("object" === typeof props.children && null !== props.children ? React8.Children.forEach(props.children, function(child) {
+          null == props.value && ("object" === typeof props.children && null !== props.children ? React9.Children.forEach(props.children, function(child) {
             null == child || "string" === typeof child || "number" === typeof child || "bigint" === typeof child || didWarnInvalidChild || (didWarnInvalidChild = true, console.error(
               "Cannot infer the option value of complex children. Pass a `value` prop or use a plain string as children to <option>."
             ));
@@ -18515,14 +18515,14 @@
           ));
         }
         "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ && "function" === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(Error());
-        var Scheduler = require_scheduler(), React8 = require_react(), ReactDOM = require_react_dom(), assign = Object.assign, REACT_LEGACY_ELEMENT_TYPE = Symbol.for("react.element"), REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = Symbol.for("react.profiler"), REACT_CONSUMER_TYPE = Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = Symbol.for("react.memo"), REACT_LAZY_TYPE = Symbol.for("react.lazy");
+        var Scheduler = require_scheduler(), React9 = require_react(), ReactDOM = require_react_dom(), assign = Object.assign, REACT_LEGACY_ELEMENT_TYPE = Symbol.for("react.element"), REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = Symbol.for("react.profiler"), REACT_CONSUMER_TYPE = Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = Symbol.for("react.memo"), REACT_LAZY_TYPE = Symbol.for("react.lazy");
         Symbol.for("react.scope");
         var REACT_ACTIVITY_TYPE = Symbol.for("react.activity");
         Symbol.for("react.legacy_hidden");
         Symbol.for("react.tracing_marker");
         var REACT_MEMO_CACHE_SENTINEL = Symbol.for("react.memo_cache_sentinel");
         Symbol.for("react.view_transition");
-        var MAYBE_ITERATOR_SYMBOL = Symbol.iterator, REACT_CLIENT_REFERENCE = Symbol.for("react.client.reference"), isArrayImpl = Array.isArray, ReactSharedInternals = React8.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, ReactDOMSharedInternals = ReactDOM.__DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, NotPending = Object.freeze({
+        var MAYBE_ITERATOR_SYMBOL = Symbol.iterator, REACT_CLIENT_REFERENCE = Symbol.for("react.client.reference"), isArrayImpl = Array.isArray, ReactSharedInternals = React9.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, ReactDOMSharedInternals = ReactDOM.__DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, NotPending = Object.freeze({
           pending: false,
           data: null,
           method: null,
@@ -21310,10 +21310,10 @@
           }
         };
         (function() {
-          var isomorphicReactPackageVersion = React8.version;
-          if ("19.2.4" !== isomorphicReactPackageVersion)
+          var isomorphicReactPackageVersion = React9.version;
+          if ("19.2.8" !== isomorphicReactPackageVersion)
             throw Error(
-              'Incompatible React versions: The "react" and "react-dom" packages must have the exact same version. Instead got:\n  - react:      ' + (isomorphicReactPackageVersion + "\n  - react-dom:  19.2.4\nLearn more: https://react.dev/warnings/version-mismatch")
+              'Incompatible React versions: The "react" and "react-dom" packages must have the exact same version. Instead got:\n  - react:      ' + (isomorphicReactPackageVersion + "\n  - react-dom:  19.2.8\nLearn more: https://react.dev/warnings/version-mismatch")
             );
         })();
         "function" === typeof Map && null != Map.prototype && "function" === typeof Map.prototype.forEach && "function" === typeof Set && null != Set.prototype && "function" === typeof Set.prototype.clear && "function" === typeof Set.prototype.forEach || console.error(
@@ -21337,10 +21337,10 @@
         if (!(function() {
           var internals = {
             bundleType: 1,
-            version: "19.2.4",
+            version: "19.2.8",
             rendererPackageName: "react-dom",
             currentDispatcherRef: ReactSharedInternals,
-            reconcilerVersion: "19.2.4"
+            reconcilerVersion: "19.2.8"
           };
           internals.overrideHookState = overrideHookState;
           internals.overrideHookStateDeletePath = overrideHookStateDeletePath;
@@ -21431,15 +21431,15 @@
           listenToAllSupportedEvents(container);
           return new ReactDOMHydrationRoot(initialChildren);
         };
-        exports.version = "19.2.4";
+        exports.version = "19.2.8";
         "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ && "function" === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(Error());
       })();
     }
   });
 
-  // ../../../../node_modules/react-dom/client.js
+  // node_modules/react-dom/client.js
   var require_client = __commonJS({
-    "../../../../node_modules/react-dom/client.js"(exports, module) {
+    "node_modules/react-dom/client.js"(exports, module) {
       "use strict";
       if (false) {
         checkDCE();
@@ -21450,9 +21450,9 @@
     }
   });
 
-  // ../../../../node_modules/react/cjs/react-jsx-runtime.development.js
+  // node_modules/react/cjs/react-jsx-runtime.development.js
   var require_react_jsx_runtime_development = __commonJS({
-    "../../../../node_modules/react/cjs/react-jsx-runtime.development.js"(exports) {
+    "node_modules/react/cjs/react-jsx-runtime.development.js"(exports) {
       "use strict";
       (function() {
         function getComponentNameFromType(type) {
@@ -21664,18 +21664,18 @@
         function isValidElement(object) {
           return "object" === typeof object && null !== object && object.$$typeof === REACT_ELEMENT_TYPE;
         }
-        var React8 = require_react(), REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = Symbol.for("react.profiler"), REACT_CONSUMER_TYPE = Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = Symbol.for("react.memo"), REACT_LAZY_TYPE = Symbol.for("react.lazy"), REACT_ACTIVITY_TYPE = Symbol.for("react.activity"), REACT_CLIENT_REFERENCE = Symbol.for("react.client.reference"), ReactSharedInternals = React8.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, hasOwnProperty = Object.prototype.hasOwnProperty, isArrayImpl = Array.isArray, createTask = console.createTask ? console.createTask : function() {
+        var React9 = require_react(), REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = Symbol.for("react.profiler"), REACT_CONSUMER_TYPE = Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = Symbol.for("react.memo"), REACT_LAZY_TYPE = Symbol.for("react.lazy"), REACT_ACTIVITY_TYPE = Symbol.for("react.activity"), REACT_CLIENT_REFERENCE = Symbol.for("react.client.reference"), ReactSharedInternals = React9.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, hasOwnProperty = Object.prototype.hasOwnProperty, isArrayImpl = Array.isArray, createTask = console.createTask ? console.createTask : function() {
           return null;
         };
-        React8 = {
+        React9 = {
           react_stack_bottom_frame: function(callStackForError) {
             return callStackForError();
           }
         };
         var specialPropKeyWarningShown;
         var didWarnAboutElementRef = {};
-        var unknownOwnerDebugStack = React8.react_stack_bottom_frame.bind(
-          React8,
+        var unknownOwnerDebugStack = React9.react_stack_bottom_frame.bind(
+          React9,
           UnknownOwner
         )();
         var unknownOwnerDebugTask = createTask(getTaskName(UnknownOwner));
@@ -21707,9 +21707,9 @@
     }
   });
 
-  // ../../../../node_modules/react/jsx-runtime.js
+  // node_modules/react/jsx-runtime.js
   var require_jsx_runtime = __commonJS({
-    "../../../../node_modules/react/jsx-runtime.js"(exports, module) {
+    "node_modules/react/jsx-runtime.js"(exports, module) {
       "use strict";
       if (false) {
         module.exports = null;
@@ -21720,7 +21720,7 @@
   });
 
   // frontend/src/index.tsx
-  var import_react7 = __toESM(require_react(), 1);
+  var import_react8 = __toESM(require_react(), 1);
   var import_client = __toESM(require_client(), 1);
 
   // frontend/src/atoms/KrnlButton.tsx
@@ -21768,6 +21768,7 @@
   var import_jsx_runtime4 = __toESM(require_jsx_runtime(), 1);
 
   // frontend/src/atoms/KrnlDropdown.tsx
+  var import_react = __toESM(require_react(), 1);
   var import_jsx_runtime5 = __toESM(require_jsx_runtime(), 1);
 
   // frontend/src/atoms/KrnlTextArea.tsx
@@ -21801,13 +21802,13 @@
   var import_jsx_runtime11 = __toESM(require_jsx_runtime(), 1);
 
   // frontend/src/atoms/KrnlSharedState.tsx
-  var import_react = __toESM(require_react(), 1);
+  var import_react2 = __toESM(require_react(), 1);
   var import_jsx_runtime12 = __toESM(require_jsx_runtime(), 1);
-  var SharedComponentContext = (0, import_react.createContext)(/* @__PURE__ */ new Map());
-  var SharedComponentSetContext = (0, import_react.createContext)(() => {
+  var SharedComponentContext = (0, import_react2.createContext)(/* @__PURE__ */ new Map());
+  var SharedComponentSetContext = (0, import_react2.createContext)(() => {
   });
   function SharedComponentProvider({ children }) {
-    const [store, setStore] = (0, import_react.useState)(/* @__PURE__ */ new Map());
+    const [store, setStore] = (0, import_react2.useState)(/* @__PURE__ */ new Map());
     const update = (id, patch) => {
       setStore((prev) => {
         const m = new Map(prev);
@@ -21820,15 +21821,15 @@
   }
 
   // frontend/src/components/ListKeys/index.tsx
-  var import_react2 = __toESM(require_react(), 1);
+  var import_react3 = __toESM(require_react(), 1);
   var import_jsx_runtime13 = __toESM(require_jsx_runtime(), 1);
   function Endpoint_ListKeys() {
-    const [formData, setFormData] = (0, import_react2.useState)({});
-    const [response, setResponse] = (0, import_react2.useState)(null);
-    const [loading, setLoading] = (0, import_react2.useState)(false);
-    const [error, setError] = (0, import_react2.useState)(null);
-    const [phantomActive, setPhantomActive] = (0, import_react2.useState)(false);
-    (0, import_react2.useEffect)(() => {
+    const [formData, setFormData] = (0, import_react3.useState)({});
+    const [response, setResponse] = (0, import_react3.useState)(null);
+    const [loading, setLoading] = (0, import_react3.useState)(false);
+    const [error, setError] = (0, import_react3.useState)(null);
+    const [phantomActive, setPhantomActive] = (0, import_react3.useState)(false);
+    (0, import_react3.useEffect)(() => {
       const sse = new EventSource("/sse/ListKeys");
       sse.onmessage = (evt) => {
         try {
@@ -21847,7 +21848,7 @@
       };
       return () => sse.close();
     }, []);
-    (0, import_react2.useEffect)(() => {
+    (0, import_react3.useEffect)(() => {
       if (response === null) return;
     }, [response]);
     const handleInputChange = (field, val) => {
@@ -21907,15 +21908,15 @@
   }
 
   // frontend/src/components/RetrieveKey/index.tsx
-  var import_react3 = __toESM(require_react(), 1);
+  var import_react4 = __toESM(require_react(), 1);
   var import_jsx_runtime14 = __toESM(require_jsx_runtime(), 1);
   function Endpoint_RetrieveKey() {
-    const [formData, setFormData] = (0, import_react3.useState)({});
-    const [response, setResponse] = (0, import_react3.useState)(null);
-    const [loading, setLoading] = (0, import_react3.useState)(false);
-    const [error, setError] = (0, import_react3.useState)(null);
-    const [phantomActive, setPhantomActive] = (0, import_react3.useState)(false);
-    (0, import_react3.useEffect)(() => {
+    const [formData, setFormData] = (0, import_react4.useState)({});
+    const [response, setResponse] = (0, import_react4.useState)(null);
+    const [loading, setLoading] = (0, import_react4.useState)(false);
+    const [error, setError] = (0, import_react4.useState)(null);
+    const [phantomActive, setPhantomActive] = (0, import_react4.useState)(false);
+    (0, import_react4.useEffect)(() => {
       const sse = new EventSource("/sse/RetrieveKey");
       sse.onmessage = (evt) => {
         try {
@@ -21934,7 +21935,7 @@
       };
       return () => sse.close();
     }, []);
-    (0, import_react3.useEffect)(() => {
+    (0, import_react4.useEffect)(() => {
       if (response === null) return;
     }, [response]);
     const handleInputChange = (field, val) => {
@@ -21997,15 +21998,15 @@
   }
 
   // frontend/src/components/StoreKey/index.tsx
-  var import_react4 = __toESM(require_react(), 1);
+  var import_react5 = __toESM(require_react(), 1);
   var import_jsx_runtime15 = __toESM(require_jsx_runtime(), 1);
   function Endpoint_StoreKey() {
-    const [formData, setFormData] = (0, import_react4.useState)({});
-    const [response, setResponse] = (0, import_react4.useState)(null);
-    const [loading, setLoading] = (0, import_react4.useState)(false);
-    const [error, setError] = (0, import_react4.useState)(null);
-    const [phantomActive, setPhantomActive] = (0, import_react4.useState)(false);
-    (0, import_react4.useEffect)(() => {
+    const [formData, setFormData] = (0, import_react5.useState)({});
+    const [response, setResponse] = (0, import_react5.useState)(null);
+    const [loading, setLoading] = (0, import_react5.useState)(false);
+    const [error, setError] = (0, import_react5.useState)(null);
+    const [phantomActive, setPhantomActive] = (0, import_react5.useState)(false);
+    (0, import_react5.useEffect)(() => {
       const sse = new EventSource("/sse/StoreKey");
       sse.onmessage = (evt) => {
         try {
@@ -22024,7 +22025,7 @@
       };
       return () => sse.close();
     }, []);
-    (0, import_react4.useEffect)(() => {
+    (0, import_react5.useEffect)(() => {
       if (response === null) return;
     }, [response]);
     const handleInputChange = (field, val) => {
@@ -22088,15 +22089,15 @@
   }
 
   // frontend/src/components/UpdateKey/index.tsx
-  var import_react5 = __toESM(require_react(), 1);
+  var import_react6 = __toESM(require_react(), 1);
   var import_jsx_runtime16 = __toESM(require_jsx_runtime(), 1);
   function Endpoint_UpdateKey() {
-    const [formData, setFormData] = (0, import_react5.useState)({});
-    const [response, setResponse] = (0, import_react5.useState)(null);
-    const [loading, setLoading] = (0, import_react5.useState)(false);
-    const [error, setError] = (0, import_react5.useState)(null);
-    const [phantomActive, setPhantomActive] = (0, import_react5.useState)(false);
-    (0, import_react5.useEffect)(() => {
+    const [formData, setFormData] = (0, import_react6.useState)({});
+    const [response, setResponse] = (0, import_react6.useState)(null);
+    const [loading, setLoading] = (0, import_react6.useState)(false);
+    const [error, setError] = (0, import_react6.useState)(null);
+    const [phantomActive, setPhantomActive] = (0, import_react6.useState)(false);
+    (0, import_react6.useEffect)(() => {
       const sse = new EventSource("/sse/UpdateKey");
       sse.onmessage = (evt) => {
         try {
@@ -22115,7 +22116,7 @@
       };
       return () => sse.close();
     }, []);
-    (0, import_react5.useEffect)(() => {
+    (0, import_react6.useEffect)(() => {
       if (response === null) return;
     }, [response]);
     const handleInputChange = (field, val) => {
@@ -22179,15 +22180,15 @@
   }
 
   // frontend/src/components/DeleteKey/index.tsx
-  var import_react6 = __toESM(require_react(), 1);
+  var import_react7 = __toESM(require_react(), 1);
   var import_jsx_runtime17 = __toESM(require_jsx_runtime(), 1);
   function Endpoint_DeleteKey() {
-    const [formData, setFormData] = (0, import_react6.useState)({});
-    const [response, setResponse] = (0, import_react6.useState)(null);
-    const [loading, setLoading] = (0, import_react6.useState)(false);
-    const [error, setError] = (0, import_react6.useState)(null);
-    const [phantomActive, setPhantomActive] = (0, import_react6.useState)(false);
-    (0, import_react6.useEffect)(() => {
+    const [formData, setFormData] = (0, import_react7.useState)({});
+    const [response, setResponse] = (0, import_react7.useState)(null);
+    const [loading, setLoading] = (0, import_react7.useState)(false);
+    const [error, setError] = (0, import_react7.useState)(null);
+    const [phantomActive, setPhantomActive] = (0, import_react7.useState)(false);
+    (0, import_react7.useEffect)(() => {
       const sse = new EventSource("/sse/DeleteKey");
       sse.onmessage = (evt) => {
         try {
@@ -22206,7 +22207,7 @@
       };
       return () => sse.close();
     }, []);
-    (0, import_react6.useEffect)(() => {
+    (0, import_react7.useEffect)(() => {
       if (response === null) return;
     }, [response]);
     const handleInputChange = (field, val) => {
@@ -22271,18 +22272,33 @@
   // frontend/src/index.tsx
   var import_jsx_runtime18 = __toESM(require_jsx_runtime(), 1);
   function AppShell() {
-    const [activeTab, setActiveTab] = (0, import_react7.useState)("ListKeys");
+    const [activeTab, setActiveTab] = (0, import_react8.useState)("ListKeys");
     return /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(SharedComponentProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { className: "krnl-app-shell", children: [
       /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("header", { className: "krnl-header", children: /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: "0.65rem" }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("span", { style: { fontSize: "1.2rem", lineHeight: 1 }, children: "\u2B21" }),
         /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("h1", { children: "Krng" })
       ] }) }),
       /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { className: "krnl-nav-tabs", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("button", { className: `krnl-tab-btn ${activeTab === "ListKeys" ? "active" : ""}`, onClick: () => setActiveTab("ListKeys"), children: "ListKeys" }),
-        /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("button", { className: `krnl-tab-btn ${activeTab === "RetrieveKey" ? "active" : ""}`, onClick: () => setActiveTab("RetrieveKey"), children: "RetrieveKey" }),
-        /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("button", { className: `krnl-tab-btn ${activeTab === "StoreKey" ? "active" : ""}`, onClick: () => setActiveTab("StoreKey"), children: "StoreKey" }),
-        /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("button", { className: `krnl-tab-btn ${activeTab === "UpdateKey" ? "active" : ""}`, onClick: () => setActiveTab("UpdateKey"), children: "UpdateKey" }),
-        /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("button", { className: `krnl-tab-btn ${activeTab === "DeleteKey" ? "active" : ""}`, onClick: () => setActiveTab("DeleteKey"), children: "DeleteKey" })
+        /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("button", { className: `krnl-tab-btn ${activeTab === "ListKeys" ? "active" : ""}`, onClick: () => setActiveTab("ListKeys"), title: "ListKeys", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("span", { children: "\u2B21" }),
+          /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("span", { className: "krnl-tab-label", children: "ListKeys" })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("button", { className: `krnl-tab-btn ${activeTab === "RetrieveKey" ? "active" : ""}`, onClick: () => setActiveTab("RetrieveKey"), title: "RetrieveKey", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("span", { children: "\u2B21" }),
+          /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("span", { className: "krnl-tab-label", children: "RetrieveKey" })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("button", { className: `krnl-tab-btn ${activeTab === "StoreKey" ? "active" : ""}`, onClick: () => setActiveTab("StoreKey"), title: "StoreKey", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("span", { children: "\u2B21" }),
+          /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("span", { className: "krnl-tab-label", children: "StoreKey" })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("button", { className: `krnl-tab-btn ${activeTab === "UpdateKey" ? "active" : ""}`, onClick: () => setActiveTab("UpdateKey"), title: "UpdateKey", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("span", { children: "\u2B21" }),
+          /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("span", { className: "krnl-tab-label", children: "UpdateKey" })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("button", { className: `krnl-tab-btn ${activeTab === "DeleteKey" ? "active" : ""}`, onClick: () => setActiveTab("DeleteKey"), title: "DeleteKey", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("span", { children: "\u2B21" }),
+          /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("span", { className: "krnl-tab-label", children: "DeleteKey" })
+        ] })
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("main", { className: "krnl-main-body", children: [
         activeTab === "ListKeys" && /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(Endpoint_ListKeys, {}),

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { SharedComponentProvider } from './atoms/index.js';
-import Endpoint_ListKeys from './components/ListKeys/index.js';
-import Endpoint_RetrieveKey from './components/RetrieveKey/index.js';
-import Endpoint_StoreKey from './components/StoreKey/index.js';
-import Endpoint_UpdateKey from './components/UpdateKey/index.js';
-import Endpoint_DeleteKey from './components/DeleteKey/index.js';
+import Endpoint_ListKeys from './components/ListKeys/index';
+import Endpoint_RetrieveKey from './components/RetrieveKey/index';
+import Endpoint_StoreKey from './components/StoreKey/index';
+import Endpoint_UpdateKey from './components/UpdateKey/index';
+import Endpoint_DeleteKey from './components/DeleteKey/index';
 
 function AppShell() {
   const [activeTab, setActiveTab] = useState<string>('ListKeys');
@@ -21,11 +21,11 @@ function AppShell() {
         </header>
 
         <div className="krnl-nav-tabs">
-          <button className={`krnl-tab-btn ${activeTab === 'ListKeys' ? 'active' : ''}`} onClick={() => setActiveTab('ListKeys')}>ListKeys</button>
-          <button className={`krnl-tab-btn ${activeTab === 'RetrieveKey' ? 'active' : ''}`} onClick={() => setActiveTab('RetrieveKey')}>RetrieveKey</button>
-          <button className={`krnl-tab-btn ${activeTab === 'StoreKey' ? 'active' : ''}`} onClick={() => setActiveTab('StoreKey')}>StoreKey</button>
-          <button className={`krnl-tab-btn ${activeTab === 'UpdateKey' ? 'active' : ''}`} onClick={() => setActiveTab('UpdateKey')}>UpdateKey</button>
-          <button className={`krnl-tab-btn ${activeTab === 'DeleteKey' ? 'active' : ''}`} onClick={() => setActiveTab('DeleteKey')}>DeleteKey</button>
+          <button className={`krnl-tab-btn ${activeTab === 'ListKeys' ? 'active' : ''}`} onClick={() => setActiveTab('ListKeys')} title="ListKeys"><span>⬡</span><span className="krnl-tab-label">ListKeys</span></button>
+          <button className={`krnl-tab-btn ${activeTab === 'RetrieveKey' ? 'active' : ''}`} onClick={() => setActiveTab('RetrieveKey')} title="RetrieveKey"><span>⬡</span><span className="krnl-tab-label">RetrieveKey</span></button>
+          <button className={`krnl-tab-btn ${activeTab === 'StoreKey' ? 'active' : ''}`} onClick={() => setActiveTab('StoreKey')} title="StoreKey"><span>⬡</span><span className="krnl-tab-label">StoreKey</span></button>
+          <button className={`krnl-tab-btn ${activeTab === 'UpdateKey' ? 'active' : ''}`} onClick={() => setActiveTab('UpdateKey')} title="UpdateKey"><span>⬡</span><span className="krnl-tab-label">UpdateKey</span></button>
+          <button className={`krnl-tab-btn ${activeTab === 'DeleteKey' ? 'active' : ''}`} onClick={() => setActiveTab('DeleteKey')} title="DeleteKey"><span>⬡</span><span className="krnl-tab-label">DeleteKey</span></button>
           
         </div>
 

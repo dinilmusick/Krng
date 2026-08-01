@@ -4,9 +4,12 @@
   "type": "module",
   "description": "Key Ring - Key/Secret Vault Manager App",
   "dependencies": {
+    "@dinilmusick/krnlts": "^1.0.0",
     "@types/better-sqlite3": "^7.6.13",
     "better-sqlite3": "^12.11.1",
-    "krnlts": "git+https://github.com/dinilmusick/KrnlTS.git#main"
+    "krnlts": "github:dinilmusick/KrnlTS#main",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
