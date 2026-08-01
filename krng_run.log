@@ -17,3 +17,13 @@
 [KrnlFrontendBuilder] Bundling /Users/dinil/Desktop/Projects/Javascript/Krng/frontend/src/index.tsx -> /Users/dinil/Desktop/Projects/Javascript/Krng/frontend/dist/bundle.js...
 [KrnlFrontendBuilder] Bundle build successful.
 Krng System initialized.
+wrappedApi called for ListKeys with input: {}
+wrappedApi called for RetrieveKey with input: {}
+wrappedApi called for StoreKey with input: {}
+wrappedApi called for UpdateKey with input: {}
+wrappedApi called for DeleteKey with input: {}
+wrappedApi called for ListKeys with input: {}
+wrappedApi called for ListKeys with input: {}
+wrappedApi called for ListKeys with input: {}
+wrappedApi called for ListKeys with input: {}
+wrappedApi called for ListKeys with input: {}
